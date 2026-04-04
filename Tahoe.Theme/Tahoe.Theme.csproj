@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Avalonia.Themes.Tahoe</AssemblyName>
+    <RootNamespace>Avalonia.Themes.Tahoe</RootNamespace>
+    <Description>Tahoe theme package for Avalonia</Description>
+    <PackageId>Avalonia.Themes.Tahoe</PackageId>
+    <Version>1.0.0</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.10" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.12" />
+    <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="2.0.318" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ProgressBar                                   -->
+    <Style Selector="ProgressBar">
+        <Setter Property="Background" Value="{DynamicResource SurfaceDark}" />
+        <Setter Property="Foreground" Value="{DynamicResource Accent}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Height" Value="{StaticResource progress-bar-height}" />
+        <Setter Property="MinHeight" Value="{StaticResource progress-bar-height}" />
+        <Setter Property="CornerRadius" Value="{StaticResource radius-full}" />
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+    <Style Selector="ProgressBar /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource SurfaceDark}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+    <Style Selector="ProgressBar /template/ Border#PART_Indicator, ProgressBar:indeterminate /template/ Border#PART_Indicator">
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+
+</Styles>

@@ -1,0 +1,41 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:themes="clr-namespace:Avalonia.Themes.Simple;assembly=Avalonia.Themes.Simple"
+        x:Class="Avalonia.Themes.Tahoe.TahoeTheme">
+
+    <!-- Shared resources (colors, sizes, shadows, ControlThemes) -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Resources/TahoeResources.axaml" />
+
+    <!-- Included control themes                     -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/GroupBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/SettingBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/ExpandableSettingBox.axaml" />
+
+    <!-- Simple theme base + DataGrid                  -->
+    <themes:SimpleTheme />
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />
+
+    <!-- Global element defaults                       -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/GlobalStyles.axaml" />
+
+    <!-- Component styles                              -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ProgressBarStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/NotificationCardStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/SizeUtilities.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ScrollViewerStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ToggleSwitchStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/SliderStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ButtonStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ToggleButtonStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/CheckBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ComboBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TextBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/NumericUpDownStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ListBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TreeViewStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TabItemStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/DataGridStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TypographyHelpers.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/EmptyStateStyles.axaml" />
+
+</Styles>

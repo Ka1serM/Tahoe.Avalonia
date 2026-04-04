@@ -1,0 +1,41 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ToggleButton                                  -->
+    <Style Selector="ToggleButton">
+        <Setter Property="Theme" Value="{StaticResource toggleButtonTheme}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Padding" Value="{StaticResource toggle-btn-padding}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="ToggleButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+    </Style>
+    <Style Selector="ToggleButton:checked">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ToggleButton.lift /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="ToggleButton.lift:pointerover /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+    <Style Selector="ToggleButton.lift:pressed /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+
+</Styles>

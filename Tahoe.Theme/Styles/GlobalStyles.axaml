@@ -1,0 +1,43 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Global element defaults                       -->
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="FontFamily" Value="SF Pro Text, Segoe UI Variable, Segoe UI" />
+    </Style>
+    <Style Selector="Button, ToggleButton, ComboBox, TextBox, TabItem, ListBoxItem, TreeViewItem, DataGridColumnHeader, DataGridCell, CheckBox, RadioButton, MenuItem, HyperlinkButton">
+        <Setter Property="FontFamily" Value="SF Pro Text, Segoe UI Variable, Segoe UI" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+    </Style>
+    <!-- Smooth transitions shared by all interactive list-like items -->
+    <Style Selector="ListBoxItem, TabItem, ComboBoxItem, TreeViewItem, MenuItem">
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.18" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Window, UserControl, TopLevel">
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+    </Style>
+    <Style Selector="FlyoutPresenter">
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-lg}" />
+        <Setter Property="Padding" Value="12" />
+    </Style>
+
+    <!-- Menu / ContextMenu                            -->
+    <Style Selector="Menu, ContextMenu, MenuItem">
+        <Setter Property="Background" Value="{DynamicResource Surface}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+    </Style>
+    <Style Selector="MenuItem:pointerover, MenuItem:selected">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+    </Style>
+
+</Styles>

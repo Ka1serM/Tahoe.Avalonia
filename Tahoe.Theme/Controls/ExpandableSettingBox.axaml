@@ -1,0 +1,106 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls"
+        xmlns:fluent="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
+
+    <Style Selector="controls|ExpandableSettingBox">
+        <Setter Property="Margin" Value="0 10 0 0" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:ExpandableSettingBox">
+                <controls:GroupBox>
+                    <StackPanel>
+                        <ToggleButton x:Name="HeaderRoot"
+                                      Background="Transparent"
+                                      BorderBrush="Transparent"
+                                      BorderThickness="0"
+                                      CornerRadius="0"
+                                      Focusable="False"
+                                      HorizontalContentAlignment="Stretch"
+                                      IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                      Padding="18 12"
+                                      Theme="{StaticResource flatToggleButtonTheme}">
+                            <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+                                <ContentPresenter Grid.Column="0"
+                                                  Content="{TemplateBinding HeaderContent}"
+                                                  VerticalAlignment="Center" />
+
+                                <Grid x:Name="ChevronRoot"
+                                      Grid.Column="1"
+                                      Width="16"
+                                      Height="16"
+                                      HorizontalAlignment="Center"
+                                      RenderTransformOrigin="8,8"
+                                      VerticalAlignment="Center">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="0">
+                                            <RotateTransform.Transitions>
+                                                <Transitions>
+                                                    <DoubleTransition Property="Angle"
+                                                                      Duration="0:0:0.25"
+                                                                      Easing="QuadraticEaseInOut" />
+                                                </Transitions>
+                                            </RotateTransform.Transitions>
+                                        </RotateTransform>
+                                    </Grid.RenderTransform>
+                                    <fluent:SymbolIcon Symbol="ChevronDown" />
+                                </Grid>
+                            </Grid>
+                        </ToggleButton>
+
+                        <ContentPresenter x:Name="FlyoutContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          IsVisible="False"
+                                          Margin="18 10 18 18"
+                                          Opacity="0">
+                            <ContentPresenter.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="Opacity"
+                                                      Duration="0:0:0.25"
+                                                      Easing="QuadraticEaseInOut" />
+                                </Transitions>
+                            </ContentPresenter.Transitions>
+                        </ContentPresenter>
+                    </StackPanel>
+                </controls:GroupBox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox.settingSized /template/ ToggleButton#HeaderRoot">
+        <Setter Property="MinHeight" Value="56" />
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox[IsExpanded=true] /template/ ContentPresenter#FlyoutContentPresenter">
+        <Setter Property="IsVisible" Value="True" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox[IsExpanded=true] /template/ Grid#ChevronRoot">
+        <Setter Property="RenderTransform">
+            <RotateTransform Angle="180" />
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox /template/ ToggleButton#HeaderRoot:checked">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox /template/ ToggleButton#HeaderRoot:checked:pointerover">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
+
+    <Style Selector="StackPanel.expandableHeader">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="Spacing" Value="12" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="StackPanel.expandableHeader > fluent|SymbolIcon.expandableHeaderIcon">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+</Styles>

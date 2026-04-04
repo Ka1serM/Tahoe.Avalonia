@@ -1,0 +1,31 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- TabItem                                       -->
+    <Style Selector="TabItem">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Padding" Value="12 7" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+    </Style>
+    <Style Selector="TabItem /template/ Border">
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="TabItem:pointerover">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+    </Style>
+    <Style Selector="TabItem:pointerover /template/ Border">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-rest}" />
+    </Style>
+    <Style Selector="TabItem:selected">
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+    </Style>
+    <Style Selector="TabItem:selected /template/ Border">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-selected}" />
+    </Style>
+    <Style Selector="TabItem:selected:pointerover /template/ Border">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-active}" />
+    </Style>
+
+</Styles>

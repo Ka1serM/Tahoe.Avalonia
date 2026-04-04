@@ -1,0 +1,79 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Utility size classes (Tailwind-inspired)      -->
+    <Style Selector="Button.h-sm, ToggleButton.h-sm, ComboBox.h-sm, TextBox.h-sm">
+        <Setter Property="Height" Value="{StaticResource size-sm}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-sm}" />
+    </Style>
+    <Style Selector="Button.h-md, ToggleButton.h-md, ComboBox.h-md, TextBox.h-md">
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+    </Style>
+    <Style Selector="Button.h-lg, ToggleButton.h-lg, ComboBox.h-lg, TextBox.h-lg">
+        <Setter Property="Height" Value="{StaticResource size-lg}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-lg}" />
+    </Style>
+    <Style Selector="Button.h-xl, ToggleButton.h-xl, ComboBox.h-xl, TextBox.h-xl">
+        <Setter Property="Height" Value="{StaticResource size-xl}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-xl}" />
+    </Style>
+    <Style Selector="Button.w-sm, ToggleButton.w-sm, ComboBox.w-sm, TextBox.w-sm, Border.w-sm, Grid.w-sm, Image.w-sm">
+        <Setter Property="Width" Value="{StaticResource size-sm}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-sm}" />
+    </Style>
+    <Style Selector="Button.w-md, ToggleButton.w-md, ComboBox.w-md, TextBox.w-md, Border.w-md, Grid.w-md, Image.w-md">
+        <Setter Property="Width" Value="{StaticResource size-md}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-md}" />
+    </Style>
+    <Style Selector="Button.w-lg, ToggleButton.w-lg, ComboBox.w-lg, TextBox.w-lg, Border.w-lg, Grid.w-lg, Image.w-lg">
+        <Setter Property="Width" Value="{StaticResource size-lg}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-lg}" />
+    </Style>
+    <Style Selector="Button.w-xl, ToggleButton.w-xl, ComboBox.w-xl, TextBox.w-xl, Border.w-xl, Grid.w-xl, Image.w-xl">
+        <Setter Property="Width" Value="{StaticResource size-xl}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-xl}" />
+    </Style>
+    <Style Selector="Button.size-sm, ToggleButton.size-sm, Border.size-sm, Grid.size-sm, Image.size-sm">
+        <Setter Property="Width" Value="{StaticResource size-sm}" />
+        <Setter Property="Height" Value="{StaticResource size-sm}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-sm}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-sm}" />
+    </Style>
+    <Style Selector="Button.size-md, ToggleButton.size-md, Border.size-md, Grid.size-md, Image.size-md">
+        <Setter Property="Width" Value="{StaticResource size-md}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+    </Style>
+    <Style Selector="Button.size-lg, ToggleButton.size-lg, Border.size-lg, Grid.size-lg, Image.size-lg">
+        <Setter Property="Width" Value="{StaticResource size-lg}" />
+        <Setter Property="Height" Value="{StaticResource size-lg}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-lg}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-lg}" />
+    </Style>
+    <Style Selector="Button.size-xl, ToggleButton.size-xl, Border.size-xl, Grid.size-xl, Image.size-xl">
+        <Setter Property="Width" Value="{StaticResource size-xl}" />
+        <Setter Property="Height" Value="{StaticResource size-xl}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-xl}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-xl}" />
+    </Style>
+
+    <!-- Rounded corner utility classes for Border -->
+    <Style Selector="Border.rounded-sm">
+        <Setter Property="CornerRadius" Value="{StaticResource radius-sm}" />
+    </Style>
+    <Style Selector="Border.rounded-md">
+        <Setter Property="CornerRadius" Value="{StaticResource radius-md}" />
+    </Style>
+    <Style Selector="Border.rounded-lg">
+        <Setter Property="CornerRadius" Value="{StaticResource radius-lg}" />
+    </Style>
+    <Style Selector="Border.rounded-xl">
+        <Setter Property="CornerRadius" Value="{StaticResource radius-xl}" />
+    </Style>
+    <Style Selector="Border.rounded-full">
+        <Setter Property="CornerRadius" Value="{StaticResource radius-full}" />
+    </Style>
+
+</Styles>

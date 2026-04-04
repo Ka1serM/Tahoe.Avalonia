@@ -1,0 +1,705 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:primitives="clr-namespace:Avalonia.Controls.Primitives;assembly=Avalonia.Controls">
+
+    <Styles.Resources>
+        <ResourceDictionary>
+
+    <!-- ============================================= -->
+    <!-- Typography scale (Tailwind-style)             -->
+    <!-- ============================================= -->
+    <x:Double x:Key="text-xs-size">11</x:Double>
+    <x:Double x:Key="text-sm-size">13</x:Double>
+    <x:Double x:Key="text-base-size">16</x:Double>
+    <x:Double x:Key="text-xl-size">24</x:Double>
+
+    <!-- ============================================= -->
+    <!-- Sizing scale (Tailwind-style)                 -->
+    <!-- ============================================= -->
+    <x:Double x:Key="size-sm">30</x:Double>
+    <x:Double x:Key="size-md">36</x:Double>
+    <x:Double x:Key="size-lg">44</x:Double>
+    <x:Double x:Key="size-xl">52</x:Double>
+
+    <!-- Component-specific sizes -->
+    <x:Double x:Key="combobox-min-width">132</x:Double>
+    <x:Double x:Key="combobox-max-width">176</x:Double>
+    <x:Double x:Key="window-control-size">17</x:Double>
+    <x:Double x:Key="window-control-glyph-size">10</x:Double>
+
+    <!-- Toggle switch -->
+    <x:Double x:Key="toggle-knob-bounds-width">32</x:Double>
+    <x:Double x:Key="toggle-knob-width">28</x:Double>
+    <x:Double x:Key="toggle-knob-height">16</x:Double>
+    <x:Double x:Key="toggle-knob-start-x">0</x:Double>
+    <x:Double x:Key="toggle-knob-checked-x">4</x:Double>
+
+    <!-- Slider -->
+    <x:Double x:Key="slider-height">28</x:Double>
+    <x:Double x:Key="slider-thumb-width">34</x:Double>
+    <x:Double x:Key="slider-track-height">7</x:Double>
+
+    <!-- Misc -->
+    <x:Double x:Key="progress-bar-height">10</x:Double>
+    <x:Double x:Key="spin-btn-size">26</x:Double>
+    <x:Double x:Key="tree-chevron-size">16</x:Double>
+    <x:Double x:Key="tree-chevron-font-size">12</x:Double>
+    <x:Double x:Key="tree-icon-size">22</x:Double>
+    <x:Double x:Key="tree-item-min-height">40</x:Double>
+    <x:Double x:Key="tree-row-min-height">34</x:Double>
+
+    <!-- ============================================= -->
+    <!-- Spacing / padding (Tailwind-style)            -->
+    <!-- ============================================= -->
+    <Thickness x:Key="btn-padding">11 5</Thickness>
+    <Thickness x:Key="toggle-btn-padding">9 5</Thickness>
+    <Thickness x:Key="textbox-padding">10 7</Thickness>
+    <Thickness x:Key="list-item-padding">11 8</Thickness>
+    <Thickness x:Key="settings-nav-item-padding">11 9</Thickness>
+    <Thickness x:Key="page-margin">18</Thickness>
+    <Thickness x:Key="content-page-margin">20</Thickness>
+    <Thickness x:Key="settings-title-margin">0 0 0 12</Thickness>
+    <Thickness x:Key="tree-item-margin">2 1</Thickness>
+    <Thickness x:Key="tree-row-padding">7 5</Thickness>
+    <Thickness x:Key="tree-chevron-margin">0 0 10 0</Thickness>
+    <Thickness x:Key="tree-label-margin">10 0 0 0</Thickness>
+
+    <!-- ============================================= -->
+    <!-- Corner radius (Tailwind-style)                -->
+    <!-- ============================================= -->
+    <CornerRadius x:Key="radius-sm">6</CornerRadius>
+    <CornerRadius x:Key="radius-md">10</CornerRadius>
+    <CornerRadius x:Key="radius-lg">14</CornerRadius>
+    <CornerRadius x:Key="radius-xl">22</CornerRadius>
+    <CornerRadius x:Key="radius-full">999</CornerRadius>
+    <CornerRadius x:Key="tree-item-radius">12</CornerRadius>
+
+    <!-- ============================================= -->
+    <!-- Shadow tokens (Tailwind-style)                -->
+    <!-- ============================================= -->
+
+    <!-- Controls: buttons, toggles, inputs -->
+    <BoxShadows x:Key="shadow-control-rest">0 8 20 0 #2A000000</BoxShadows>
+    <BoxShadows x:Key="shadow-control-hover">0 10 26 0 #30000000</BoxShadows>
+
+    <!-- Cards / panels -->
+    <BoxShadows x:Key="shadow-card-rest">0 1 1 0 #38FFFFFF, 0 10 22 0 #28000000</BoxShadows>
+    <BoxShadows x:Key="shadow-card-hover">0 1 1 0 #40FFFFFF, 0 12 24 0 #30000000</BoxShadows>
+    <BoxShadows x:Key="shadow-card-collapsed">0 0 0 0 #00000000</BoxShadows>
+
+    <!-- Surfaces: dropdowns, tabs, nav items -->
+    <BoxShadows x:Key="shadow-surface-rest">0 1 1 0 #28FFFFFF, 0 8 18 0 #24000000</BoxShadows>
+    <BoxShadows x:Key="shadow-surface-hover">0 1 1 0 #30FFFFFF, 0 8 18 0 #24000000</BoxShadows>
+    <BoxShadows x:Key="shadow-surface-selected">0 1 1 0 #30FFFFFF, 0 10 22 0 #2C000000</BoxShadows>
+    <BoxShadows x:Key="shadow-surface-active">0 1 1 0 #38FFFFFF, 0 12 24 0 #34000000</BoxShadows>
+
+    <!-- Slider / knob -->
+    <BoxShadows x:Key="shadow-slider-thumb">0 1 1 0 #38FFFFFF, 0 2 6 0 #2C000000, 0 8 18 0 #1C000000</BoxShadows>
+    <BoxShadows x:Key="shadow-toggle-knob">0 1 1 0 #40FFFFFF, 0 2 6 0 #2A000000</BoxShadows>
+
+    <!-- Accent-tinted card -->
+    <BoxShadows x:Key="shadow-accent-card">0 1 1 0 #28FFFFFF, 0 14 30 0 #20000000</BoxShadows>
+
+    <!-- Notifications -->
+    <BoxShadows x:Key="shadow-notification">0 1 1 0 #38FFFFFF, 0 10 22 0 #28000000</BoxShadows>
+
+    <!-- Tab items -->
+    <BoxShadows x:Key="shadow-tab-rest">0 1 1 0 #24FFFFFF, 0 10 22 0 #2A000000</BoxShadows>
+    <BoxShadows x:Key="shadow-tab-hover">0 1 1 0 #2CFFFFFF, 0 12 24 0 #30000000</BoxShadows>
+
+    <!-- Render-mode switcher -->
+    <BoxShadows x:Key="shadow-render-mode-switcher">0 6 18 0 #60000000</BoxShadows>
+
+    <!-- ============================================= -->
+    <!-- Control themes (camelCase, no prefix)         -->
+    <!-- ============================================= -->
+
+    <ControlTheme x:Key="windowControlButtonTheme" TargetType="Button">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="False">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!-- Shared raised-chrome template used by Button and ToggleButton -->
+    <ControlTheme x:Key="buttonTheme" TargetType="Button">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid x:Name="Root" ClipToBounds="False">
+                    <Border x:Name="Chrome"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BoxShadow="{StaticResource shadow-control-rest}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border x:Name="Highlight"
+                            Background="Transparent"
+                            BorderBrush="{DynamicResource OverlaySoft}"
+                            BorderThickness="0"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#Chrome">
+            <Setter Property="BoxShadow" Value="{StaticResource shadow-control-hover}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Chrome">
+            <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Highlight">
+            <Setter Property="Opacity" Value="0.45" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="toggleButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid x:Name="Root" ClipToBounds="False">
+                    <Border x:Name="Chrome"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BoxShadow="{StaticResource shadow-control-rest}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border x:Name="Highlight"
+                            Background="Transparent"
+                            BorderBrush="{DynamicResource OverlaySoft}"
+                            BorderThickness="0"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#Chrome">
+            <Setter Property="BoxShadow" Value="{StaticResource shadow-control-hover}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Chrome">
+            <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Highlight">
+            <Setter Property="Opacity" Value="0.45" />
+        </Style>
+    </ControlTheme>
+
+    <!-- Flat (no shadow) variants — used inside cards/notifications -->
+    <ControlTheme x:Key="flatButtonTheme" TargetType="Button">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="False"
+                        Padding="{TemplateBinding Padding}">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="flatToggleButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="False"
+                        Padding="{TemplateBinding Padding}">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="comboBoxTheme" TargetType="ComboBox">
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-md}" />
+        <Setter Property="Padding" Value="{StaticResource btn-padding}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="MaxDropDownHeight" Value="320" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ComboBox">
+                <Grid RowDefinitions="Auto,Auto">
+                    <Border x:Name="ComboBorder"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ContentPresenter x:Name="SelectionBoxPresenter"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  IsHitTestVisible="False" />
+                                <TextBox x:Name="PART_EditableTextBox"
+                                         Classes="embeddedComboEditor"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Padding="0"
+                                         CornerRadius="0"
+                                         MinHeight="0"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Center"
+                                         IsVisible="{TemplateBinding IsEditable}"
+                                         Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                            </Grid>
+                            <Border Grid.Column="1"
+                                    Padding="10 0"
+                                    Background="Transparent"
+                                    IsHitTestVisible="False">
+                                <Path Width="8"
+                                      Height="6"
+                                      Data="M0,0 L4,4 L8,0"
+                                      Stroke="{DynamicResource ForegroundLight}"
+                                      StrokeThickness="1.5"
+                                      StrokeLineCap="Round"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <Popup x:Name="PART_Popup"
+                           Grid.Row="1"
+                           IsLightDismissEnabled="True"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           Placement="Bottom"
+                           PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                        <Border Margin="0 4 0 0"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                Background="{DynamicResource Background}"
+                                BorderBrush="{DynamicResource Border}"
+                                BorderThickness="0"
+                                CornerRadius="{DynamicResource radius-md}"
+                                BoxShadow="{StaticResource shadow-surface-rest}">
+                            <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                          HorizontalScrollBarVisibility="Disabled">
+                                <ItemsPresenter Margin="4" />
+                            </ScrollViewer>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#ComboBorder">
+            <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#ComboBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        </Style>
+        <Style Selector="^[IsDropDownOpen=True] /template/ Border#ComboBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        </Style>
+        <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CaretBrush" Value="{DynamicResource Foreground}" />
+            <Setter Property="SelectionBrush" Value="{DynamicResource Selection}" />
+            <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Foreground}" />
+        </Style>
+        <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox:pointerover">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+        <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox:focus">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+        <Style Selector="^[IsEditable=True] /template/ ContentPresenter#SelectionBoxPresenter">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="toggleSwitchTheme" TargetType="ToggleSwitch">
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Width" Value="{StaticResource size-lg}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-lg}" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="KnobTransitions">
+            <Transitions>
+                <DoubleTransition Property="Canvas.Left" Duration="0:0:0.18" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Grid ColumnDefinitions="Auto,8,*"
+                      ClipToBounds="False"
+                      VerticalAlignment="Center">
+                    <Grid Grid.Column="0"
+                          Width="{StaticResource size-lg}"
+                          Height="20"
+                          ClipToBounds="False">
+                        <Border x:Name="Track"
+                                TemplatedControl.IsTemplateFocusTarget="True"
+                                Width="{StaticResource size-lg}"
+                                Height="20"
+                                Background="{DynamicResource ForegroundLight}"
+                                BorderBrush="{DynamicResource Border}"
+                                BorderThickness="0"
+                                CornerRadius="999">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Duration="0:0:0.16" Property="Background" />
+                                    <BrushTransition Duration="0:0:0.16" Property="BorderBrush" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <Canvas x:Name="PART_SwitchKnob"
+                                Width="{StaticResource toggle-knob-bounds-width}"
+                                Height="20"
+                                ClipToBounds="False">
+                            <Grid x:Name="PART_MovingKnobs"
+                                  Canvas.Left="{StaticResource toggle-knob-start-x}"
+                                  Width="{StaticResource toggle-knob-bounds-width}"
+                                  Height="20">
+                                <Border x:Name="KnobVisual"
+                                        Width="{StaticResource toggle-knob-width}"
+                                        Height="{StaticResource toggle-knob-height}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        CornerRadius="999"
+                                        Background="{DynamicResource AccentForeground}"
+                                        BorderBrush="#20000000"
+                                        BorderThickness="0"
+                                        BoxShadow="{StaticResource shadow-toggle-knob}">
+                                    <Border.Transitions>
+                                        <Transitions>
+                                            <BrushTransition Duration="0:0:0.16" Property="Background" Easing="CubicEaseOut" />
+                                            <BrushTransition Duration="0:0:0.16" Property="BorderBrush" Easing="CubicEaseOut" />
+                                        </Transitions>
+                                    </Border.Transitions>
+                                </Border>
+                            </Grid>
+                        </Canvas>
+                    </Grid>
+                    <ContentPresenter x:Name="PART_OnContentPresenter"
+                                      Grid.Column="2"
+                                      Content="{TemplateBinding OnContent}"
+                                      ContentTemplate="{TemplateBinding OnContentTemplate}"
+                                      VerticalAlignment="Center"
+                                      Opacity="0" />
+                    <ContentPresenter x:Name="PART_OffContentPresenter"
+                                      Grid.Column="2"
+                                      Content="{TemplateBinding OffContent}"
+                                      ContentTemplate="{TemplateBinding OffContentTemplate}"
+                                      VerticalAlignment="Center"
+                                      Opacity="0" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Unchecked -->
+        <Style Selector="^:unchecked /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource ForegroundLight}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        </Style>
+        <Style Selector="^:unchecked /template/ Grid#PART_MovingKnobs">
+            <Setter Property="Canvas.Left" Value="{StaticResource toggle-knob-start-x}" />
+        </Style>
+        <Style Selector="^:unchecked /template/ Border#KnobVisual">
+            <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
+            <Setter Property="BorderBrush" Value="#20000000" />
+        </Style>
+        <Style Selector="^:unchecked /template/ ContentPresenter#PART_OffContentPresenter">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <!-- Checked -->
+        <Style Selector="^:checked /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource Accent}" />
+            <Setter Property="BorderBrush" Value="#22000000" />
+        </Style>
+        <Style Selector="^:checked /template/ Grid#PART_MovingKnobs">
+            <Setter Property="Canvas.Left" Value="{StaticResource toggle-knob-checked-x}" />
+        </Style>
+        <Style Selector="^:checked /template/ Border#KnobVisual">
+            <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
+            <Setter Property="BorderBrush" Value="#20000000" />
+        </Style>
+        <Style Selector="^:checked /template/ ContentPresenter#PART_OnContentPresenter">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <!-- Pointer-over -->
+        <Style Selector="^:pointerover /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource ForegroundLight}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        </Style>
+        <Style Selector="^:pointerover:checked /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource Accent}" />
+            <Setter Property="BorderBrush" Value="#30000000" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#KnobVisual">
+            <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
+            <Setter Property="BorderBrush" Value="#26000000" />
+        </Style>
+
+        <!-- Pressed -->
+        <Style Selector="^:pressed /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource ForegroundLight}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        </Style>
+        <Style Selector="^:pressed:checked /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource Accent}" />
+            <Setter Property="BorderBrush" Value="#30000000" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#KnobVisual">
+            <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
+            <Setter Property="BorderBrush" Value="#26000000" />
+        </Style>
+
+        <!-- Focus -->
+        <Style Selector="^:focus-visible /template/ Border#Track">
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+            <Setter Property="BoxShadow" Value="0 0 0 3 #26314D66" />
+        </Style>
+
+        <!-- Disabled -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.55" />
+        </Style>
+        <Style Selector="^:disabled:checked /template/ Border#Track">
+            <Setter Property="Background" Value="{DynamicResource Accent}" />
+            <Setter Property="BorderBrush" Value="#22000000" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#KnobVisual">
+            <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
+            <Setter Property="BorderBrush" Value="#20000000" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="sliderTheme" TargetType="Slider">
+        <Setter Property="Height" Value="{StaticResource slider-height}" />
+        <Setter Property="MinWidth" Value="120" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Slider">
+                <Grid Height="{TemplateBinding Height}"
+                      ColumnDefinitions="*,Auto"
+                      ColumnSpacing="10"
+                      ClipToBounds="False"
+                      VerticalAlignment="Center">
+                    <Border Grid.Column="0"
+                            Height="{StaticResource slider-track-height}"
+                            Background="{DynamicResource ForegroundLight}"
+                            CornerRadius="999"
+                            VerticalAlignment="Center">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0:0:0.16" Easing="CubicEaseOut" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <primitives:Track Grid.Column="0"
+                                      x:Name="PART_Track"
+                                      Minimum="{TemplateBinding Minimum}"
+                                      Maximum="{TemplateBinding Maximum}"
+                                      Value="{TemplateBinding Value}"
+                                      Orientation="{TemplateBinding Orientation}"
+                                      IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                                      ClipToBounds="False">
+                        <primitives:Track.DecreaseButton>
+                            <RepeatButton Background="Transparent" BorderThickness="0" ClipToBounds="False" Padding="0">
+                                <RepeatButton.Template>
+                                    <ControlTemplate>
+                                        <Border Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Height="{StaticResource slider-track-height}"
+                                                Background="{DynamicResource Accent}"
+                                                CornerRadius="999"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center">
+                                            <Border.Transitions>
+                                                <Transitions>
+                                                    <DoubleTransition Property="Width" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                    <BrushTransition Property="Background" Duration="0:0:0.14" Easing="QuadraticEaseOut" />
+                                                </Transitions>
+                                            </Border.Transitions>
+                                        </Border>
+                                    </ControlTemplate>
+                                </RepeatButton.Template>
+                            </RepeatButton>
+                        </primitives:Track.DecreaseButton>
+                        <primitives:Track.IncreaseButton>
+                            <RepeatButton Background="Transparent" BorderThickness="0" ClipToBounds="False" Padding="0">
+                                <RepeatButton.Template>
+                                    <ControlTemplate>
+                                        <Border Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Height="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Background="Transparent" />
+                                    </ControlTemplate>
+                                </RepeatButton.Template>
+                            </RepeatButton>
+                        </primitives:Track.IncreaseButton>
+                        <primitives:Track.Thumb>
+                            <primitives:Thumb Width="{StaticResource slider-thumb-width}"
+                                              Height="20"
+                                              ClipToBounds="False"
+                                              Background="Transparent">
+                                <primitives:Thumb.Template>
+                                    <ControlTemplate>
+                                        <Border x:Name="ThumbChrome"
+                                                Width="{StaticResource slider-thumb-width}"
+                                                Height="20"
+                                                Background="{DynamicResource AccentForeground}"
+                                                BorderBrush="#22000000"
+                                                BorderThickness="0"
+                                                CornerRadius="999"
+                                                BoxShadow="{StaticResource shadow-slider-thumb}">
+                                            <Border.Transitions>
+                                                <Transitions>
+                                                    <BrushTransition Property="Background" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                    <BrushTransition Property="BorderBrush" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                </Transitions>
+                                            </Border.Transitions>
+                                        </Border>
+                                    </ControlTemplate>
+                                </primitives:Thumb.Template>
+                            </primitives:Thumb>
+                        </primitives:Track.Thumb>
+                    </primitives:Track>
+                    <Border x:Name="ValueHost"
+                            Grid.Column="1"
+                            IsVisible="False"
+                            MinWidth="0"
+                            Padding="8 0"
+                            Background="{DynamicResource AccentForeground}"
+                            BorderBrush="#22000000"
+                            BorderThickness="0"
+                            CornerRadius="{StaticResource radius-full}"
+                            VerticalAlignment="Center">
+                        <TextBlock x:Name="ValueText"
+                                   MinWidth="40"
+                                   HorizontalAlignment="Right"
+                                   TextAlignment="Right"
+                                   FontSize="{StaticResource text-sm-size}"
+                                   Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0.##}}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.show-value /template/ Border#ValueHost">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="MinWidth" Value="56" />
+        </Style>
+    </ControlTheme>
+
+    <!-- ============================================= -->
+    <!-- Color tokens (Light / Dark)                   -->
+    <!-- ============================================= -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="Background">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundLight">#FFF7F6F5</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundDark">#FFE4E1DE</SolidColorBrush>
+            <SolidColorBrush x:Key="Surface">#FFEFEEED</SolidColorBrush>
+            <SolidColorBrush x:Key="SurfaceLight">#FFEFEFEF</SolidColorBrush>
+            <SolidColorBrush x:Key="SurfaceDark">#FFE4E1DE</SolidColorBrush>
+            <SolidColorBrush x:Key="Foreground">#FF1F1F21</SolidColorBrush>
+            <SolidColorBrush x:Key="ForegroundLight">#9B4F4F56</SolidColorBrush>
+            <SolidColorBrush x:Key="ForegroundDark">#FF141416</SolidColorBrush>
+            <SolidColorBrush x:Key="Accent" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="AccentForeground">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="Border">#16000000</SolidColorBrush>
+            <SolidColorBrush x:Key="BorderStrong">#26000000</SolidColorBrush>
+            <SolidColorBrush x:Key="OverlaySoft">#12000000</SolidColorBrush>
+            <SolidColorBrush x:Key="Overlay">#1A000000</SolidColorBrush>
+            <SolidColorBrush x:Key="OverlayStrong">#38000000</SolidColorBrush>
+            <SolidColorBrush x:Key="Popup">#FFEFEEED</SolidColorBrush>
+            <SolidColorBrush x:Key="Focus" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="Selection" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="GlassHighlight">#55FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="GlassLowlight">#18000000</SolidColorBrush>
+            <SolidColorBrush x:Key="Danger">#FFFE5F57</SolidColorBrush>
+            <SolidColorBrush x:Key="Warning">#FFFEBB2E</SolidColorBrush>
+            <SolidColorBrush x:Key="Success">#FF28C840</SolidColorBrush>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="Background">#FF222226</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundLight">#FF2A2A2F</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundDark">#FF18181C</SolidColorBrush>
+            <SolidColorBrush x:Key="Surface">#FF1E1E22</SolidColorBrush>
+            <SolidColorBrush x:Key="SurfaceLight">#FF242428</SolidColorBrush>
+            <SolidColorBrush x:Key="SurfaceDark">#FF17171A</SolidColorBrush>
+            <SolidColorBrush x:Key="Foreground">#FFDEDEDE</SolidColorBrush>
+            <SolidColorBrush x:Key="ForegroundLight">#B79D9DA2</SolidColorBrush>
+            <SolidColorBrush x:Key="ForegroundDark">#FFF2F2F3</SolidColorBrush>
+            <SolidColorBrush x:Key="Accent" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="AccentForeground">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="Border">#FF151519</SolidColorBrush>
+            <SolidColorBrush x:Key="BorderStrong">#FF34343A</SolidColorBrush>
+            <SolidColorBrush x:Key="OverlaySoft">#14FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="Overlay">#29FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="OverlayStrong">#59FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="Popup">#FF1E1E22</SolidColorBrush>
+            <SolidColorBrush x:Key="Focus" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="Selection" Color="{DynamicResource ThemeAccentColor}" />
+            <SolidColorBrush x:Key="GlassHighlight">#14FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="GlassLowlight">#66000000</SolidColorBrush>
+            <SolidColorBrush x:Key="Danger">#FFFE5F57</SolidColorBrush>
+            <SolidColorBrush x:Key="Warning">#FFFEBB2E</SolidColorBrush>
+            <SolidColorBrush x:Key="Success">#FF28C840</SolidColorBrush>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

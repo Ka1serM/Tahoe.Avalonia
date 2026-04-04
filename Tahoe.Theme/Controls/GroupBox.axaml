@@ -1,0 +1,49 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls">
+
+    <Styles.Resources>
+        <ControlTheme x:Key="groupBoxTheme" TargetType="controls:GroupBox">
+            <Setter Property="Background" Value="{DynamicResource Surface}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource radius-lg}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="controls:GroupBox">
+                    <Border x:Name="Chrome"
+                            ClipToBounds="True"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{DynamicResource Border}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter ClipToBounds="True"
+                                          Content="{TemplateBinding Content}"
+                                          Margin="{TemplateBinding Padding}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <Style Selector="controls|GroupBox">
+        <Setter Property="Theme" Value="{StaticResource groupBoxTheme}" />
+    </Style>
+
+    <Style Selector="controls|GroupBox.lift">
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="controls|GroupBox.lift /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+    </Style>
+    <Style Selector="controls|GroupBox.clipContent">
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+    <Style Selector="controls|GroupBox.clipContent /template/ Border#Chrome">
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+    <Style Selector="controls|GroupBox Button:not(.windowControl):not(.lift)">
+        <Setter Property="Theme" Value="{StaticResource flatButtonTheme}" />
+    </Style>
+    <Style Selector="controls|GroupBox ToggleButton:not(.lift)">
+        <Setter Property="Theme" Value="{StaticResource flatToggleButtonTheme}" />
+    </Style>
+</Styles>

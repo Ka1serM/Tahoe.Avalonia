@@ -1,0 +1,99 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:icons="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
+
+    <!-- Button                                        -->
+    <Style Selector="Button">
+        <Setter Property="Theme" Value="{StaticResource buttonTheme}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Padding" Value="{StaticResource btn-padding}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="Button:pointerover">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+    </Style>
+    <Style Selector="Button:pressed">
+        <Setter Property="Background" Value="{DynamicResource BackgroundDark}" />
+    </Style>
+    <Style Selector="Button:focus">
+        <Setter Property="BorderBrush" Value="{DynamicResource Focus}" />
+    </Style>
+    <!-- Square icon button -->
+    <Style Selector="Button.iconSquare">
+        <Setter Property="Width" Value="{StaticResource size-md}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinWidth" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="CornerRadius" Value="999" />
+    </Style>
+    <!-- Square icon + lift compound selector (dolly/pan gizmos) -->
+    <Style Selector="Button.iconSquare.lift">
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.16" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Button.iconSquare.lift /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Button.iconSquare.lift:pointerover">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+    </Style>
+    <Style Selector="Button.iconSquare.lift:pointerover /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+    <Style Selector="Button.iconSquare.lift:pressed">
+        <Setter Property="Background" Value="{DynamicResource BackgroundDark}" />
+    </Style>
+    <Style Selector="Button.iconSquare.lift:pressed /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <!-- Generic iconSquare (without lift) -->
+    <Style Selector="Button.iconSquare:not(.lift) /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-hover}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Button.iconSquare:not(.lift):pointerover /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-active}" />
+    </Style>
+    <Style Selector="Button.iconSquare:not(.lift):pressed /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <!-- Elevated / lifted button (generic) -->
+    <Style Selector="Button.lift:not(.iconSquare) /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Button.lift:not(.iconSquare):pointerover /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+    <Style Selector="Button.lift:not(.iconSquare):pressed /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+
+</Styles>

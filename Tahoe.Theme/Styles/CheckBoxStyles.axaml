@@ -1,0 +1,65 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- CheckBox                                      -->
+    <Style Selector="CheckBox">
+        <Setter Property="Theme">
+            <ControlTheme TargetType="CheckBox">
+                <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+                <Setter Property="Padding" Value="4 3" />
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Grid ColumnDefinitions="Auto,10,*" VerticalAlignment="Center">
+                            <Border x:Name="IndicatorBorder"
+                                    Width="18" Height="18"
+                                    VerticalAlignment="Center"
+                                    Background="{DynamicResource SurfaceLight}"
+                                    BorderBrush="{DynamicResource BorderStrong}"
+                                    BorderThickness="0"
+                                    CornerRadius="6">
+                                <Grid>
+                                    <Path x:Name="CheckGlyph"
+                                          IsVisible="False"
+                                          Width="11" Height="8"
+                                          Stretch="Fill"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                                          Stroke="{DynamicResource AccentForeground}"
+                                          StrokeThickness="2.4"
+                                          StrokeLineCap="Round" StrokeJoin="Round"
+                                          Data="M1,4 L3.5,6 L8,1" />
+                                    <Border x:Name="MixedGlyph"
+                                            IsVisible="False"
+                                            Width="10" Height="3"
+                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                            CornerRadius="1.5"
+                                            Background="{DynamicResource AccentForeground}" />
+                                </Grid>
+                            </Border>
+                            <ContentPresenter Grid.Column="2"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter>
+                <Style Selector="^:pointerover /template/ Border#IndicatorBorder">
+                    <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+                </Style>
+                <Style Selector="^:checked /template/ Border#IndicatorBorder, ^:checked:pointerover /template/ Border#IndicatorBorder, ^:indeterminate /template/ Border#IndicatorBorder, ^:indeterminate:pointerover /template/ Border#IndicatorBorder">
+                    <Setter Property="Background" Value="{DynamicResource Accent}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+                </Style>
+                <Style Selector="^:checked /template/ Path#CheckGlyph">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+                <Style Selector="^:indeterminate /template/ Border#MixedGlyph">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+                <Style Selector="^:disabled">
+                    <Setter Property="Opacity" Value="0.6" />
+                </Style>
+            </ControlTheme>
+        </Setter>
+    </Style>
+
+</Styles>

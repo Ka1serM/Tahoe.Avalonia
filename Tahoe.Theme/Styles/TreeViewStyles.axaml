@@ -1,0 +1,116 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:icons="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
+
+    <!-- TreeView / TreeViewItem                       -->
+    <Style Selector="TreeView">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="TreeViewItem">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,0,4" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="MinHeight" Value="{StaticResource tree-item-min-height}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="CornerRadius" Value="{DynamicResource tree-item-radius}" />
+    </Style>
+    <Style Selector="TreeViewItem /template/ Border">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="TreeViewItem /template/ ContentPresenter">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <!-- Transparent backgrounds for all interactive states — selection is painted via SelectionIndicator -->
+    <Style Selector="TreeViewItem:pointerover, TreeViewItem:selected, TreeViewItem:selected:pointerover, TreeViewItem:focus, TreeViewItem:focus-within">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+    <Style Selector="TreeViewItem /template/ Border#SelectionIndicator">
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                <BrushTransition Property="Background" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.18" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="TreeViewItem:pointerover /template/ Border#SelectionIndicator">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="TreeViewItem:selected /template/ Border#SelectionIndicator, TreeViewItem:selected:pointerover /template/ Border#SelectionIndicator">
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="TreeViewItem /template/ Rectangle#SelectionIndicator">
+        <Setter Property="Fill" Value="Transparent" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                <BrushTransition Property="Fill" Duration="0:0:0.18" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="TreeViewItem:pointerover /template/ Rectangle#SelectionIndicator">
+        <Setter Property="Fill" Value="{DynamicResource OverlaySoft}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="TreeViewItem:selected /template/ Rectangle#SelectionIndicator">
+        <Setter Property="Fill" Value="{DynamicResource Accent}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <!-- ============================================= -->
+    <!-- TreeView item template helpers                -->
+    <!-- Icon badge, name, subtitle, count badge       -->
+    <!-- ============================================= -->
+    <Style Selector="TreeView Border.treeIcon">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Margin" Value="0,0,8,0" />
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="TreeView icons|SymbolIcon.treeIcon">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+    <Style Selector="TreeView TextBlock.treeName">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+    <Style Selector="TreeView TextBlock.treeSubtitle">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Opacity" Value="0.55" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+    <Style Selector="TreeView Border.treeCount">
+        <Setter Property="Background" Value="{DynamicResource Overlay}" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="6,2" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="TreeView TextBlock.treeCountText">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Opacity" Value="0.72" />
+    </Style>
+
+</Styles>

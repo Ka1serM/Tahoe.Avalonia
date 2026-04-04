@@ -1,0 +1,143 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- NumericUpDown — matches Tahoe's rounded, raised-chrome aesthetic -->
+    <Style Selector="NumericUpDown">
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+        <Setter Property="Padding" Value="10 0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.16" Easing="CubicEaseOut" />
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.16" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <!-- Root border chrome -->
+    <Style Selector="NumericUpDown /template/ Border">
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.16" Easing="CubicEaseOut" />
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.16" Easing="CubicEaseOut" />
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <!-- Pointer-over -->
+    <Style Selector="NumericUpDown:pointerover /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+
+    <!-- Focus -->
+    <Style Selector="NumericUpDown:focus /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+
+    <!-- Pressed -->
+    <Style Selector="NumericUpDown:pressed /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource BackgroundDark}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+
+    <!-- Disabled -->
+    <Style Selector="NumericUpDown:disabled">
+        <Setter Property="Opacity" Value="0.55" />
+    </Style>
+
+    <!-- Up/down buttons — circular, matching pill aesthetic -->
+    <Style Selector="NumericUpDown /template/ RepeatButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="{StaticResource spin-btn-size}" />
+        <Setter Property="Height" Value="{StaticResource spin-btn-size}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundLight}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.12" Easing="CubicEaseOut" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.12" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="NumericUpDown /template/ RepeatButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
+    <Style Selector="NumericUpDown /template/ RepeatButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource Overlay}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
+
+    <!-- Up/down button chevrons -->
+    <Style Selector="NumericUpDown /template/ Path">
+        <Setter Property="Fill" Value="{Binding $parent[RepeatButton].Foreground}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Inner TextBox — strip all chrome, stay transparent -->
+    <Style Selector="NumericUpDown /template/ TextBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="CaretBrush" Value="{DynamicResource Foreground}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource Selection}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Foreground}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+    </Style>
+    <Style Selector="NumericUpDown /template/ TextBox:pointerover, NumericUpDown /template/ TextBox:focus">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+    <Style Selector="NumericUpDown /template/ TextBox /template/ Border">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="NumericUpDown /template/ TextBox:pointerover /template/ Border, NumericUpDown /template/ TextBox:focus /template/ Border">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+    <Style Selector="NumericUpDown /template/ TextBox /template/ ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="NumericUpDown:pointerover /template/ TextBox /template/ ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="NumericUpDown:focus /template/ TextBox /template/ ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <!-- Watermark -->
+    <Style Selector="NumericUpDown /template/ TextBlock.watermark">
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundLight}" />
+    </Style>
+
+</Styles>
