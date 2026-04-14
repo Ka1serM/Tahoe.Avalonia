@@ -24,7 +24,6 @@ public class EditableComboBox : ComboBox
 
     public EditableComboBox()
     {
-        Classes.Add("editableCombo");
         SelectionChanged += OnSelectionChanged;
     }
 
@@ -69,6 +68,9 @@ public class EditableComboBox : ComboBox
 
         if (change.Property == SelectedItemProperty || change.Property == ItemsSourceProperty)
             SyncTextFromSelectedItem(forceWhileTyping: false);
+
+        if (change.Property == TextProperty)
+            SyncEditorTextFromControlText(forceWhileTyping: false);
     }
 
     private void OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
@@ -223,7 +225,10 @@ public class EditableComboBox : ComboBox
     private void SyncTextFromSelectedItem(bool forceWhileTyping)
     {
         if (SelectedItem is null)
+        {
+            SyncEditorTextFromControlText(forceWhileTyping);
             return;
+        }
 
         if (!forceWhileTyping && _isHandlingUserTextChange)
             return;
@@ -241,6 +246,31 @@ public class EditableComboBox : ComboBox
                 _editableTextBox.SelectionStart = selectedText.Length;
                 _editableTextBox.SelectionEnd = selectedText.Length;
             }
+        }
+        finally
+        {
+            _isApplyingAutoComplete = false;
+        }
+    }
+
+    private void SyncEditorTextFromControlText(bool forceWhileTyping)
+    {
+        if (_editableTextBox is null)
+            return;
+
+        if (!forceWhileTyping && _isHandlingUserTextChange)
+            return;
+
+        var controlText = Text ?? string.Empty;
+        if (string.Equals(_editableTextBox.Text, controlText, StringComparison.Ordinal))
+            return;
+
+        _isApplyingAutoComplete = true;
+        try
+        {
+            _editableTextBox.Text = controlText;
+            _editableTextBox.SelectionStart = controlText.Length;
+            _editableTextBox.SelectionEnd = controlText.Length;
         }
         finally
         {

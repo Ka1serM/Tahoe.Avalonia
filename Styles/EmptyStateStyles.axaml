@@ -8,7 +8,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Opacity" Value="0.45" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
 

@@ -1,0 +1,176 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Styles.Resources>
+        <x:Double x:Key="combobox-min-width">132</x:Double>
+        <x:Double x:Key="combobox-max-width">176</x:Double>
+
+        <ControlTheme x:Key="comboBoxTheme" TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="{DynamicResource radius-md}" />
+            <Setter Property="Padding" Value="{StaticResource btn-padding}" />
+            <Setter Property="Height" Value="{StaticResource size-md}" />
+            <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="MaxDropDownHeight" Value="320" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid RowDefinitions="Auto,Auto">
+                        <Border x:Name="ComboBorder"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Grid Margin="{TemplateBinding Padding}">
+                                    <ContentPresenter x:Name="SelectionBoxPresenter"
+                                                      Content="{TemplateBinding SelectionBoxItem}"
+                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      IsHitTestVisible="False" />
+                                    <TextBox x:Name="PART_EditableTextBox"
+                                             Classes="embeddedComboEditor"
+                                             Background="Transparent"
+                                             BorderThickness="0"
+                                             Padding="0"
+                                             CornerRadius="0"
+                                             MinHeight="0"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Center"
+                                             IsVisible="{TemplateBinding IsEditable}"
+                                             Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                                </Grid>
+                                <Border Grid.Column="1"
+                                        Padding="10 0"
+                                        Background="Transparent"
+                                        IsHitTestVisible="False">
+                                    <Path Width="8"
+                                          Height="6"
+                                          Data="M0,0 L4,4 L8,0"
+                                          Stroke="{DynamicResource ForegroundLight}"
+                                          StrokeThickness="1.5"
+                                          StrokeLineCap="Round"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <Popup x:Name="PART_Popup"
+                               Grid.Row="1"
+                               IsLightDismissEnabled="True"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               Placement="Bottom"
+                               PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                            <Border Margin="0 4 0 0"
+                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Background="{DynamicResource Background}"
+                                    BorderBrush="{DynamicResource Border}"
+                                    BorderThickness="0"
+                                    CornerRadius="{DynamicResource radius-md}"
+                                    BoxShadow="{StaticResource shadow-surface-rest}">
+                                <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                              HorizontalScrollBarVisibility="Disabled">
+                                    <ItemsPresenter Margin="4" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover /template/ Border#ComboBorder">
+                <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+            </Style>
+            <Style Selector="^:focus /template/ Border#ComboBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+                <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+            </Style>
+            <Style Selector="^[IsDropDownOpen=True] /template/ Border#ComboBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+                <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+            </Style>
+            <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CaretBrush" Value="{DynamicResource Foreground}" />
+                <Setter Property="SelectionBrush" Value="{DynamicResource Selection}" />
+                <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Foreground}" />
+            </Style>
+            <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox:pointerover">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox:focus">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^[IsEditable=True] /template/ ContentPresenter#SelectionBoxPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="0.6" />
+            </Style>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <!-- ComboBox                                      -->
+    <Style Selector="ComboBox">
+        <Setter Property="Theme" Value="{StaticResource comboBoxTheme}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Padding" Value="{StaticResource btn-padding}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="MinHeight" Value="{StaticResource size-md}" />
+        <Setter Property="MinWidth" Value="{StaticResource combobox-min-width}" />
+        <Setter Property="MaxWidth" Value="{StaticResource combobox-max-width}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="IsTextSearchEnabled" Value="True" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="ComboBox:pointerover">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+    </Style>
+    <Style Selector="ComboBox.lift /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+    </Style>
+    <Style Selector="ComboBox.lift:pointerover /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Padding" Value="10 7" />
+        <Setter Property="Margin" Value="0 1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="7" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="ComboBoxItem /template/ Border">
+        <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="ComboBoxItem:pointerover">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+    </Style>
+    <Style Selector="ComboBoxItem:selected">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
+
+</Styles>

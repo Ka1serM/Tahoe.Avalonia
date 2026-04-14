@@ -2,6 +2,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:icons="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
 
+    <Styles.Resources>
+        <x:Double x:Key="tree-chevron-size">16</x:Double>
+        <x:Double x:Key="tree-chevron-font-size">12</x:Double>
+        <x:Double x:Key="tree-icon-size">22</x:Double>
+        <x:Double x:Key="tree-item-min-height">40</x:Double>
+        <x:Double x:Key="tree-row-min-height">34</x:Double>
+        <CornerRadius x:Key="tree-item-radius">12</CornerRadius>
+    </Styles.Resources>
+
     <!-- TreeView / TreeViewItem                       -->
     <Style Selector="TreeView">
         <Setter Property="Background" Value="Transparent" />
@@ -51,7 +60,7 @@
         <Setter Property="Opacity" Value="1" />
     </Style>
     <Style Selector="TreeViewItem:selected /template/ Border#SelectionIndicator, TreeViewItem:selected:pointerover /template/ Border#SelectionIndicator">
-        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Opacity" Value="1" />
     </Style>
@@ -70,7 +79,7 @@
         <Setter Property="Opacity" Value="1" />
     </Style>
     <Style Selector="TreeViewItem:selected /template/ Rectangle#SelectionIndicator">
-        <Setter Property="Fill" Value="{DynamicResource Accent}" />
+        <Setter Property="Fill" Value="{DynamicResource OverlaySoft}" />
         <Setter Property="Opacity" Value="1" />
     </Style>
 
@@ -90,7 +99,7 @@
     <Style Selector="TreeView icons|SymbolIcon.treeIcon">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="{StaticResource text-sm}" />
     </Style>
     <Style Selector="TreeView TextBlock.treeName">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -99,7 +108,7 @@
     <Style Selector="TreeView TextBlock.treeSubtitle">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Opacity" Value="0.55" />
-        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontSize" Value="{StaticResource text-xs}" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
     <Style Selector="TreeView Border.treeCount">
@@ -109,7 +118,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <Style Selector="TreeView TextBlock.treeCountText">
-        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontSize" Value="{StaticResource text-xs}" />
         <Setter Property="Opacity" Value="0.72" />
     </Style>
 

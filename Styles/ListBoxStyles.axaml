@@ -1,6 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Styles.Resources>
+        <Thickness x:Key="list-item-padding">11 8</Thickness>
+    </Styles.Resources>
+
     <!-- ListBox                                       -->
     <Style Selector="ListBox">
         <Setter Property="Background" Value="Transparent" />
@@ -63,7 +67,7 @@
         <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-rest}" />
     </Style>
     <Style Selector="ListBoxItem:selected">
-        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
         <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
     </Style>
     <Style Selector="ListBoxItem:selected /template/ Border">

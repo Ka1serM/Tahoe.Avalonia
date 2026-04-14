@@ -1,0 +1,249 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:themes="clr-namespace:Avalonia.Themes.Simple;assembly=Avalonia.Themes.Simple"
+        x:Class="Avalonia.Themes.Tahoe.TahoeTheme">
+
+    <!-- ============================================= -->
+    <!-- Shared resources (colors, sizes, shadows, cross-cutting ControlThemes) -->
+    <!-- ============================================= -->
+    <Styles.Resources>
+        <ResourceDictionary>
+
+            <!-- ============================================= -->
+            <!-- Typography scale                              -->
+            <!-- ============================================= -->
+            <x:Double x:Key="text-xs">11</x:Double>
+            <x:Double x:Key="text-sm">12</x:Double>
+            <x:Double x:Key="text-base">14</x:Double>
+            <x:Double x:Key="text-lg">16</x:Double>
+            <x:Double x:Key="text-xl">20</x:Double>
+            <x:Double x:Key="text-2xl">24</x:Double>
+            <x:Double x:Key="text-3xl">32</x:Double>
+
+            <!-- ============================================= -->
+            <!-- Sizing scale (Tailwind-style)                 -->
+            <!-- ============================================= -->
+            <x:Double x:Key="size-sm">30</x:Double>
+            <x:Double x:Key="size-md">36</x:Double>
+            <x:Double x:Key="size-lg">44</x:Double>
+            <x:Double x:Key="size-xl">52</x:Double>
+
+            <!-- Window controls (used by UniversalUmap)       -->
+            <x:Double x:Key="window-control-size">17</x:Double>
+            <x:Double x:Key="window-control-glyph-size">10</x:Double>
+
+            <!-- ============================================= -->
+            <!-- Shared spacing / padding                      -->
+            <!-- ============================================= -->
+            <Thickness x:Key="btn-padding">11 5</Thickness>
+            <Thickness x:Key="toggle-btn-padding">9 5</Thickness>
+            <Thickness x:Key="page-margin">18</Thickness>
+            <Thickness x:Key="content-page-margin">20</Thickness>
+            <Thickness x:Key="settings-title-margin">0 0 0 12</Thickness>
+            <Thickness x:Key="tree-item-margin">2 1</Thickness>
+            <Thickness x:Key="tree-row-padding">7 5</Thickness>
+            <Thickness x:Key="tree-chevron-margin">0 0 10 0</Thickness>
+            <Thickness x:Key="tree-label-margin">10 0 0 0</Thickness>
+
+            <!-- ============================================= -->
+            <!-- Corner radius (Tailwind-style)                -->
+            <!-- ============================================= -->
+            <CornerRadius x:Key="radius-sm">6</CornerRadius>
+            <CornerRadius x:Key="radius-md">10</CornerRadius>
+            <CornerRadius x:Key="radius-lg">14</CornerRadius>
+            <CornerRadius x:Key="radius-xl">22</CornerRadius>
+            <CornerRadius x:Key="radius-full">999</CornerRadius>
+
+            <!-- ============================================= -->
+            <!-- Shadow tokens (Tailwind-style)                -->
+            <!-- ============================================= -->
+
+            <!-- Controls: buttons, toggles, inputs -->
+            <BoxShadows x:Key="shadow-control-rest">0 8 20 0 #2A000000</BoxShadows>
+            <BoxShadows x:Key="shadow-control-hover">0 10 26 0 #30000000</BoxShadows>
+
+            <!-- Cards / panels -->
+            <BoxShadows x:Key="shadow-card-rest">0 1 1 0 #38FFFFFF, 0 10 22 0 #28000000</BoxShadows>
+            <BoxShadows x:Key="shadow-card-hover">0 1 1 0 #40FFFFFF, 0 12 24 0 #30000000</BoxShadows>
+            <BoxShadows x:Key="shadow-card-collapsed">0 0 0 0 #00000000</BoxShadows>
+
+            <!-- Surfaces: dropdowns, tabs, nav items -->
+            <BoxShadows x:Key="shadow-surface-rest">0 1 1 0 #28FFFFFF, 0 8 18 0 #24000000</BoxShadows>
+            <BoxShadows x:Key="shadow-surface-hover">0 1 1 0 #30FFFFFF, 0 8 18 0 #24000000</BoxShadows>
+            <BoxShadows x:Key="shadow-surface-selected">0 1 1 0 #30FFFFFF, 0 10 22 0 #2C000000</BoxShadows>
+            <BoxShadows x:Key="shadow-surface-active">0 1 1 0 #38FFFFFF, 0 12 24 0 #34000000</BoxShadows>
+
+            <!-- Slider / knob -->
+            <BoxShadows x:Key="shadow-slider-thumb">0 1 1 0 #38FFFFFF, 0 2 6 0 #2C000000, 0 8 18 0 #1C000000</BoxShadows>
+            <BoxShadows x:Key="shadow-toggle-knob">0 1 1 0 #40FFFFFF, 0 2 6 0 #2A000000</BoxShadows>
+
+            <!-- Accent-tinted card -->
+            <BoxShadows x:Key="shadow-accent-card">0 1 1 0 #28FFFFFF, 0 14 30 0 #20000000</BoxShadows>
+
+            <!-- Notifications -->
+            <BoxShadows x:Key="shadow-notification">0 1 1 0 #38FFFFFF, 0 10 22 0 #28000000</BoxShadows>
+
+            <!-- Tab items -->
+            <BoxShadows x:Key="shadow-tab-rest">0 1 1 0 #24FFFFFF, 0 10 22 0 #2A000000</BoxShadows>
+            <BoxShadows x:Key="shadow-tab-hover">0 1 1 0 #2CFFFFFF, 0 12 24 0 #30000000</BoxShadows>
+
+            <!-- Render-mode switcher -->
+            <BoxShadows x:Key="shadow-render-mode-switcher">0 6 18 0 #60000000</BoxShadows>
+
+            <!-- ============================================= -->
+            <!-- Cross-cutting ControlThemes                   -->
+            <!-- (referenced from multiple unrelated controls)  -->
+            <!-- ============================================= -->
+
+            <ControlTheme x:Key="windowControlButtonTheme" TargetType="Button">
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="False">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter>
+            </ControlTheme>
+
+            <!-- Flat (no shadow) variants — used inside GroupBox, ExpandableSettingBox, NotificationCard, FolderTree -->
+            <ControlTheme x:Key="flatButtonTheme" TargetType="Button">
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="False"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter>
+            </ControlTheme>
+
+            <ControlTheme x:Key="flatToggleButtonTheme" TargetType="ToggleButton">
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="False"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter>
+            </ControlTheme>
+
+            <!-- ============================================= -->
+            <!-- Color tokens (Light / Dark)                   -->
+            <!-- ============================================= -->
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="Background">#FFFFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="BackgroundLight">#FFF5F5F5</SolidColorBrush>
+                    <SolidColorBrush x:Key="BackgroundDark">#FFE0E0E0</SolidColorBrush>
+                    <SolidColorBrush x:Key="Surface">#FFEEEEEE</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceLight">#FFF0F0F0</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceDark">#FFE0E0E0</SolidColorBrush>
+                    <SolidColorBrush x:Key="Foreground">#FF1A1A1A</SolidColorBrush>
+                    <SolidColorBrush x:Key="ForegroundLight">#FF6E6E6E</SolidColorBrush>
+                    <SolidColorBrush x:Key="ForegroundDark">#FF0A0A0A</SolidColorBrush>
+                    <SolidColorBrush x:Key="Accent" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="AccentForeground">#FFFFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="Border">#1A000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="BorderStrong">#2E000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="OverlaySoft">#0D000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="Overlay">#14000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="OverlayStrong">#33000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="Popup">#FFEEEEEE</SolidColorBrush>
+                    <SolidColorBrush x:Key="Focus" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="Selection" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="GlassHighlight">#55FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="GlassLowlight">#1A000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="Danger">#FFFE5F57</SolidColorBrush>
+                    <SolidColorBrush x:Key="Warning">#FFFEBB2E</SolidColorBrush>
+                    <SolidColorBrush x:Key="Success">#FF28C840</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="Background">#FF1E1E1E</SolidColorBrush>
+                    <SolidColorBrush x:Key="BackgroundLight">#FF262626</SolidColorBrush>
+                    <SolidColorBrush x:Key="BackgroundDark">#FF141414</SolidColorBrush>
+                    <SolidColorBrush x:Key="Surface">#FF1C1C1C</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceLight">#FF222222</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceDark">#FF151515</SolidColorBrush>
+                    <SolidColorBrush x:Key="Foreground">#FFE0E0E0</SolidColorBrush>
+                    <SolidColorBrush x:Key="ForegroundLight">#FFA0A0A0</SolidColorBrush>
+                    <SolidColorBrush x:Key="ForegroundDark">#FFF5F5F5</SolidColorBrush>
+                    <SolidColorBrush x:Key="Accent" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="AccentForeground">#FFFFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="Border">#1AFFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="BorderStrong">#33FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="OverlaySoft">#0DFFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="Overlay">#14FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="OverlayStrong">#33FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="Popup">#FF1C1C1C</SolidColorBrush>
+                    <SolidColorBrush x:Key="Focus" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="Selection" Color="{DynamicResource ThemeAccentColor}" />
+                    <SolidColorBrush x:Key="GlassHighlight">#14FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="GlassLowlight">#66000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="Danger">#FFFE5F57</SolidColorBrush>
+                    <SolidColorBrush x:Key="Warning">#FFFEBB2E</SolidColorBrush>
+                    <SolidColorBrush x:Key="Success">#FF28C840</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+
+    <!-- ============================================= -->
+    <!-- Included control themes                       -->
+    <!-- ============================================= -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/GroupBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/SettingBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/ExpandableSettingBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/EditableList.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/EditableComboBox.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Controls/TahoeWindow.axaml" />
+
+    <!-- Simple theme base + DataGrid                  -->
+    <themes:SimpleTheme />
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml" />
+
+    <!-- Global element defaults                       -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/GlobalStyles.axaml" />
+
+    <!-- Component styles (ControlThemes live inside)  -->
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ButtonStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ToggleButtonStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/CheckBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ComboBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/EditableComboBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TextBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/NumericUpDownStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ListBoxStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ProgressBarStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/SliderStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ToggleSwitchStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TabItemStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TreeViewStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/ScrollViewerStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/DataGridStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/NotificationCardStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/TypographyHelpers.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/EmptyStateStyles.axaml" />
+    <StyleInclude Source="avares://Avalonia.Themes.Tahoe/Styles/SizeUtilities.axaml" />
+
+</Styles>

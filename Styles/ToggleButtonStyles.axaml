@@ -1,0 +1,101 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Styles.Resources>
+        <!-- Shared raised-chrome template used by ToggleButton -->
+        <ControlTheme x:Key="toggleButtonTheme" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Grid x:Name="Root" ClipToBounds="False">
+                        <Border x:Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BoxShadow="{StaticResource shadow-control-rest}">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <Border x:Name="Highlight"
+                                Background="Transparent"
+                                BorderBrush="{DynamicResource OverlaySoft}"
+                                BorderThickness="0"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover /template/ Border#Chrome">
+                <Setter Property="BoxShadow" Value="{StaticResource shadow-control-hover}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#Chrome">
+                <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#Highlight">
+                <Setter Property="Opacity" Value="0.45" />
+            </Style>
+        </ControlTheme>
+
+        <!-- Flat (no shadow) variant — used inside cards/notifications -->
+        <ControlTheme x:Key="flatToggleButtonTheme" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            ClipToBounds="False"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <!-- ToggleButton                                  -->
+    <Style Selector="ToggleButton">
+        <Setter Property="Theme" Value="{StaticResource toggleButtonTheme}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
+        <Setter Property="Padding" Value="{StaticResource toggle-btn-padding}" />
+        <Setter Property="Height" Value="{StaticResource size-md}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="ToggleButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+    </Style>
+    <Style Selector="ToggleButton:checked">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ToggleButton.lift /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="ToggleButton.lift:pointerover /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+    <Style Selector="ToggleButton.lift:pressed /template/ Border#Chrome">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+
+</Styles>

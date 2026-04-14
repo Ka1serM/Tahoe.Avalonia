@@ -1,6 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Styles.Resources>
+        <x:Double x:Key="spin-btn-size">26</x:Double>
+    </Styles.Resources>
+
     <!-- NumericUpDown — matches Tahoe's rounded, raised-chrome aesthetic -->
     <Style Selector="NumericUpDown">
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
@@ -13,7 +17,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
         <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
         <Setter Property="Transitions">
             <Transitions>
@@ -110,7 +114,7 @@
         <Setter Property="SelectionBrush" Value="{DynamicResource Selection}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Foreground}" />
         <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
-        <Setter Property="FontSize" Value="{StaticResource text-base-size}" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
     </Style>
     <Style Selector="NumericUpDown /template/ TextBox:pointerover, NumericUpDown /template/ TextBox:focus">
         <Setter Property="Background" Value="Transparent" />

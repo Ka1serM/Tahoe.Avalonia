@@ -1,0 +1,137 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:primitives="clr-namespace:Avalonia.Controls.Primitives;assembly=Avalonia.Controls">
+
+    <Styles.Resources>
+        <!-- Slider sizing (internal) -->
+        <x:Double x:Key="slider-height">28</x:Double>
+        <x:Double x:Key="slider-thumb-width">34</x:Double>
+        <x:Double x:Key="slider-track-height">7</x:Double>
+
+        <ControlTheme x:Key="sliderTheme" TargetType="Slider">
+            <Setter Property="Height" Value="{StaticResource slider-height}" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="Slider">
+                    <Grid Height="{TemplateBinding Height}"
+                          ColumnDefinitions="*,Auto"
+                          ColumnSpacing="10"
+                          ClipToBounds="False"
+                          VerticalAlignment="Center">
+                        <Border Grid.Column="0"
+                                Height="{StaticResource slider-track-height}"
+                                Background="{DynamicResource ForegroundLight}"
+                                CornerRadius="999"
+                                VerticalAlignment="Center">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0:0:0.16" Easing="CubicEaseOut" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <primitives:Track Grid.Column="0"
+                                          x:Name="PART_Track"
+                                          Minimum="{TemplateBinding Minimum}"
+                                          Maximum="{TemplateBinding Maximum}"
+                                          Value="{TemplateBinding Value}"
+                                          Orientation="{TemplateBinding Orientation}"
+                                          IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                                          ClipToBounds="False">
+                            <primitives:Track.DecreaseButton>
+                                <RepeatButton Background="Transparent" BorderThickness="0" ClipToBounds="False" Padding="0">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate>
+                                            <Border Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Height="{StaticResource slider-track-height}"
+                                                    Background="{DynamicResource Accent}"
+                                                    CornerRadius="999"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center">
+                                                <Border.Transitions>
+                                                    <Transitions>
+                                                        <DoubleTransition Property="Width" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                        <BrushTransition Property="Background" Duration="0:0:0.14" Easing="QuadraticEaseOut" />
+                                                    </Transitions>
+                                                </Border.Transitions>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </primitives:Track.DecreaseButton>
+                            <primitives:Track.IncreaseButton>
+                                <RepeatButton Background="Transparent" BorderThickness="0" ClipToBounds="False" Padding="0">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate>
+                                            <Border Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Height="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"
+                                                    Background="Transparent" />
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </primitives:Track.IncreaseButton>
+                            <primitives:Track.Thumb>
+                                <primitives:Thumb Width="{StaticResource slider-thumb-width}"
+                                                  Height="20"
+                                                  ClipToBounds="False"
+                                                  Background="Transparent">
+                                    <primitives:Thumb.Template>
+                                        <ControlTemplate>
+                                            <Border x:Name="ThumbChrome"
+                                                    Width="{StaticResource slider-thumb-width}"
+                                                    Height="20"
+                                                    Background="{DynamicResource AccentForeground}"
+                                                    BorderBrush="#22000000"
+                                                    BorderThickness="0"
+                                                    CornerRadius="999"
+                                                    BoxShadow="{StaticResource shadow-slider-thumb}">
+                                                <Border.Transitions>
+                                                    <Transitions>
+                                                        <BrushTransition Property="Background" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                        <BrushTransition Property="BorderBrush" Duration="0:0:0.12" Easing="QuadraticEaseOut" />
+                                                    </Transitions>
+                                                </Border.Transitions>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </primitives:Thumb.Template>
+                                </primitives:Thumb>
+                            </primitives:Track.Thumb>
+                        </primitives:Track>
+                        <Border x:Name="ValueHost"
+                                Grid.Column="1"
+                                IsVisible="False"
+                                MinWidth="0"
+                                Padding="8 0"
+                                Background="{DynamicResource AccentForeground}"
+                                BorderBrush="#22000000"
+                                BorderThickness="0"
+                                CornerRadius="{StaticResource radius-full}"
+                                VerticalAlignment="Center">
+                            <TextBlock x:Name="ValueText"
+                                       MinWidth="40"
+                                       HorizontalAlignment="Right"
+                                       TextAlignment="Right"
+                                       FontSize="{StaticResource text-sm}"
+                                       Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0.##}}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^.show-value /template/ Border#ValueHost">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="MinWidth" Value="56" />
+            </Style>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <!-- Slider                                        -->
+    <Style Selector="Slider">
+        <Setter Property="Theme" Value="{StaticResource sliderTheme}" />
+        <Setter Property="Height" Value="{StaticResource slider-height}" />
+        <Setter Property="MinWidth" Value="120" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="Slider.lift /template/ Border#ThumbChrome">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+    </Style>
+
+</Styles>

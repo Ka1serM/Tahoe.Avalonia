@@ -17,7 +17,7 @@
                         </Grid.ColumnDefinitions>
 
                         <icons:SymbolIcon Grid.Column="0"
-                                          FontSize="24"
+                                          FontSize="{StaticResource text-xl}"
                                           IsVisible="{TemplateBinding ShowIcon}"
                                           Symbol="{TemplateBinding Icon}" />
 
@@ -58,7 +58,7 @@
                         </Grid.ColumnDefinitions>
 
                         <icons:SymbolIcon Grid.Column="0"
-                                          FontSize="24"
+                                          FontSize="{StaticResource text-xl}"
                                           IsVisible="{TemplateBinding ShowIcon}"
                                           Symbol="{TemplateBinding Icon}" />
 

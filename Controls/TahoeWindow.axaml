@@ -1,0 +1,85 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls;assembly=Avalonia.Themes.Tahoe"
+        xmlns:icons="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
+
+    <Style Selector="controls|TahoeWindow">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:TahoeWindow">
+                <Grid x:Name="PART_RootGrid">
+                    <Border CornerRadius="{DynamicResource radius-xl}"
+                            ClipToBounds="True"
+                            Background="{DynamicResource Background}">
+                        <Grid RowDefinitions="Auto,*">
+                            <!-- Title bar -->
+                            <Border x:Name="PART_TitleBar"
+                                    Grid.Row="0"
+                                    Background="{DynamicResource Background}"
+                                    Cursor="Arrow">
+                                <Grid Height="34"
+                                      Margin="14 6 14 4">
+                                    <!-- Centered title — hidden by code-behind when Title is null/empty -->
+                                    <TextBlock x:Name="PART_TitleText"
+                                               Text="{TemplateBinding Title}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontWeight="SemiBold"
+                                               IsHitTestVisible="False"
+                                               Classes="text-2xl" />
+
+                                    <!-- Linux buttons (left) -->
+                                    <StackPanel x:Name="PART_LinButtons"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="8">
+                                        <Button x:Name="PART_LinClose" Classes="windowControl close">
+                                            <icons:SymbolIcon Symbol="Dismiss" />
+                                        </Button>
+                                        <Button x:Name="PART_LinMinimize" Classes="windowControl minimize">
+                                            <icons:SymbolIcon Symbol="Subtract" />
+                                        </Button>
+                                        <Button x:Name="PART_LinMaximize" Classes="windowControl maximize">
+                                            <icons:SymbolIcon Symbol="Add" />
+                                        </Button>
+                                    </StackPanel>
+
+                                    <!-- Windows buttons (right) -->
+                                    <StackPanel x:Name="PART_WinButtons"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="8">
+                                        <Button x:Name="PART_WinMinimize" Classes="windowControl minimize">
+                                            <icons:SymbolIcon Symbol="Subtract" />
+                                        </Button>
+                                        <Button x:Name="PART_WinMaximize" Classes="windowControl maximize">
+                                            <icons:SymbolIcon Symbol="Add" />
+                                        </Button>
+                                        <Button x:Name="PART_WinClose" Classes="windowControl close">
+                                            <icons:SymbolIcon Symbol="Dismiss" />
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Main content -->
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Resize borders -->
+                    <Border x:Name="PART_ResizeNW" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Cursor="TopLeftCorner" Tag="NorthWest" />
+                    <Border x:Name="PART_ResizeN" Height="7" Margin="22 0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" Cursor="TopSide" Tag="North" />
+                    <Border x:Name="PART_ResizeNE" Width="16" Height="16" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" Cursor="TopRightCorner" Tag="NorthEast" />
+                    <Border x:Name="PART_ResizeE" Width="7" Margin="0 22" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="Transparent" Cursor="RightSide" Tag="East" />
+                    <Border x:Name="PART_ResizeSE" Width="16" Height="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" Cursor="BottomRightCorner" Tag="SouthEast" />
+                    <Border x:Name="PART_ResizeS" Height="7" Margin="22 0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Transparent" Cursor="BottomSide" Tag="South" />
+                    <Border x:Name="PART_ResizeSW" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Transparent" Cursor="BottomLeftCorner" Tag="SouthWest" />
+                    <Border x:Name="PART_ResizeW" Width="7" Margin="0 22" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="Transparent" Cursor="LeftSide" Tag="West" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

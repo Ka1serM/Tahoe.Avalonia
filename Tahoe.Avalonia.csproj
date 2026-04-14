@@ -8,6 +8,7 @@
     <PackageId>Avalonia.Themes.Tahoe</PackageId>
     <Version>1.0.0</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <UsedAvaloniaProducts></UsedAvaloniaProducts>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,15 +3,15 @@
 
     <!-- Typography helpers                            -->
     <Style Selector="TextBlock.h1">
-        <Setter Property="FontSize" Value="{StaticResource text-xl-size}" />
+        <Setter Property="FontSize" Value="{StaticResource text-xl}" />
         <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
     <Style Selector="TextBlock.h2">
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontSize" Value="{StaticResource text-xl}" />
         <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
     <Style Selector="TextBlock.h3">
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{StaticResource text-base}" />
         <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
 

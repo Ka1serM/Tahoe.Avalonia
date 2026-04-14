@@ -1,0 +1,48 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls">
+
+    <Style Selector="controls|EditableComboBox:pointerover /template/ Border#ComboBorder">
+        <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox:focus /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox[IsDropDownOpen=True] /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox /template/ TextBox#PART_EditableTextBox">
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource Foreground}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource Selection}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource Foreground}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox /template/ TextBox#PART_EditableTextBox:pointerover">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox /template/ TextBox#PART_EditableTextBox:focus">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox.lift /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox.lift:pointerover /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
+    </Style>
+
+    <Style Selector="controls|EditableComboBox:disabled">
+        <Setter Property="Opacity" Value="0.6" />
+    </Style>
+</Styles>
