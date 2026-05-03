@@ -1,9 +1,54 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls">
 
     <Styles.Resources>
         <x:Double x:Key="combobox-min-width">132</x:Double>
         <x:Double x:Key="combobox-max-width">176</x:Double>
+
+        <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="10 7" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="SelectionBorder"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^ /template/ Border#SelectionBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#SelectionBorder,
+                             ^:selected:focus /template/ Border#SelectionBorder,
+                             ^:selected:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource Accent}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+            </Style>
+        </ControlTheme>
 
         <ControlTheme x:Key="comboBoxTheme" TargetType="ComboBox">
             <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
@@ -153,6 +198,25 @@
     <Style Selector="ComboBox.lift:pointerover /template/ Border#ComboBorder">
         <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
     </Style>
+    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift)">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox.lift:not(.drawerLift) /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift):pointerover /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox.lift:not(.drawerLift):pointerover /template/ Border#ComboBorder">
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
     <Style Selector="ComboBoxItem">
         <Setter Property="Padding" Value="10 7" />
         <Setter Property="Margin" Value="0 1" />
@@ -169,8 +233,11 @@
         <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
     </Style>
     <Style Selector="ComboBoxItem:selected">
-        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
-        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ComboBoxItem:selected TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
     </Style>
 
 </Styles>

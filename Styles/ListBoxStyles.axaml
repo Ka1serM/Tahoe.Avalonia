@@ -3,6 +3,50 @@
 
     <Styles.Resources>
         <Thickness x:Key="list-item-padding">11 8</Thickness>
+
+        <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="{StaticResource list-item-padding}" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="SelectionBorder"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^ /template/ Border#SelectionBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.18" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#SelectionBorder,
+                             ^:selected:focus /template/ Border#SelectionBorder,
+                             ^:selected:focus-within /template/ Border#SelectionBorder,
+                             ^:selected:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus-within:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource Accent}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+            </Style>
+        </ControlTheme>
     </Styles.Resources>
 
     <!-- ListBox                                       -->
@@ -38,37 +82,18 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="ListBoxItem /template/ Border#SelectionIndicator">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Opacity" Value="0" />
-        <Setter Property="Transitions">
-            <Transitions>
-                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="CubicEaseOut" />
-                <BrushTransition Property="Background" Duration="0:0:0.18" Easing="CubicEaseOut" />
-                <BrushTransition Property="BorderBrush" Duration="0:0:0.18" Easing="CubicEaseOut" />
-            </Transitions>
-        </Setter>
-    </Style>
-    <Style Selector="ListBoxItem /template/ Rectangle#SelectionIndicator">
-        <Setter Property="Fill" Value="Transparent" />
-        <Setter Property="Opacity" Value="0" />
-        <Setter Property="Transitions">
-            <Transitions>
-                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="CubicEaseOut" />
-                <BrushTransition Property="Fill" Duration="0:0:0.18" Easing="CubicEaseOut" />
-            </Transitions>
-        </Setter>
-    </Style>
     <Style Selector="ListBoxItem:pointerover">
         <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
     </Style>
     <Style Selector="ListBoxItem:pointerover /template/ Border">
         <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-rest}" />
     </Style>
-    <Style Selector="ListBoxItem:selected">
-        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
-        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    <Style Selector="ListBoxItem:selected, ListBoxItem:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ListBoxItem:selected TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
     </Style>
     <Style Selector="ListBoxItem:selected /template/ Border">
         <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-selected}" />

@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildThisFileDirectory)..\Directory.Build.props"
+          Condition="'$(UniversalUmapAvaloniaVersion)' == '' and Exists('$(MSBuildThisFileDirectory)..\Directory.Build.props')" />
+
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <AssemblyName>Avalonia.Themes.Tahoe</AssemblyName>
     <RootNamespace>Avalonia.Themes.Tahoe</RootNamespace>
@@ -11,11 +14,14 @@
     <UsedAvaloniaProducts></UsedAvaloniaProducts>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.12" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.10" />
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.12" />
-    <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="2.0.318" />
-  </ItemGroup>
+  <PropertyGroup Label="AvaloniaConfiguration">
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="$(UniversalUmapAvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(UniversalUmapAvaloniaDataGridVersion)" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="$(UniversalUmapAvaloniaVersion)" />
+    <PackageReference Include="FluentIcons.Avalonia" Version="$(UniversalUmapFluentIconsAvaloniaVersion)" />
+  </ItemGroup>
 </Project>

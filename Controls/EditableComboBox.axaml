@@ -96,5 +96,6 @@
 
     <Style Selector="controls|EditableComboBox">
         <Setter Property="Theme" Value="{StaticResource editableComboBoxTheme}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
     </Style>
 </Styles>

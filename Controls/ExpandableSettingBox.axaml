@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls"
-        xmlns:fluent="clr-namespace:FluentIcons.Avalonia.Fluent;assembly=FluentIcons.Avalonia.Fluent">
+        xmlns:fluent="clr-namespace:FluentIcons.Avalonia;assembly=FluentIcons.Avalonia">
 
     <Style Selector="controls|ExpandableSettingBox">
         <Setter Property="Margin" Value="0 10 0 0" />
@@ -9,16 +9,11 @@
             <ControlTemplate TargetType="controls:ExpandableSettingBox">
                 <controls:GroupBox>
                     <StackPanel>
-                        <ToggleButton x:Name="HeaderRoot"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      BorderThickness="0"
-                                      CornerRadius="0"
-                                      Focusable="False"
-                                      HorizontalContentAlignment="Stretch"
-                                      IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                      Padding="18 12"
-                                      Theme="{StaticResource flatToggleButtonTheme}">
+                        <Border x:Name="HeaderRoot"
+                                Background="Transparent"
+                                CornerRadius="{DynamicResource radius-lg}"
+                                Focusable="True"
+                                Padding="18 12">
                             <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
                                 <ContentPresenter Grid.Column="0"
                                                   Content="{TemplateBinding HeaderContent}"
@@ -45,7 +40,7 @@
                                     <fluent:SymbolIcon Symbol="ChevronDown" />
                                 </Grid>
                             </Grid>
-                        </ToggleButton>
+                        </Border>
 
                         <ContentPresenter x:Name="FlyoutContentPresenter"
                                           Content="{TemplateBinding Content}"
@@ -66,8 +61,16 @@
         </Setter>
     </Style>
 
-    <Style Selector="controls|ExpandableSettingBox.settingSized /template/ ToggleButton#HeaderRoot">
+    <Style Selector="controls|ExpandableSettingBox.settingSized /template/ Border#HeaderRoot">
         <Setter Property="MinHeight" Value="56" />
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox[IsExpanded=true] /template/ Border#HeaderRoot">
+        <Setter Property="CornerRadius" Value="14,14,0,0" />
+    </Style>
+
+    <Style Selector="controls|ExpandableSettingBox /template/ Border#HeaderRoot:pointerover">
+        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
     </Style>
 
     <Style Selector="controls|ExpandableSettingBox[IsExpanded=true] /template/ ContentPresenter#FlyoutContentPresenter">
@@ -79,18 +82,6 @@
         <Setter Property="RenderTransform">
             <RotateTransform Angle="180" />
         </Setter>
-    </Style>
-
-    <Style Selector="controls|ExpandableSettingBox /template/ ToggleButton#HeaderRoot:checked">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
-    </Style>
-
-    <Style Selector="controls|ExpandableSettingBox /template/ ToggleButton#HeaderRoot:checked:pointerover">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
     </Style>
 
     <Style Selector="StackPanel.expandableHeader">

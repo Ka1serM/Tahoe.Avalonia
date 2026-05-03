@@ -3,6 +3,8 @@
 
     <!-- CheckBox                                      -->
     <Style Selector="CheckBox">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Theme">
             <ControlTheme TargetType="CheckBox">
                 <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
@@ -14,8 +16,8 @@
                                     Width="18" Height="18"
                                     VerticalAlignment="Center"
                                     Background="{DynamicResource SurfaceLight}"
-                                    BorderBrush="{DynamicResource BorderStrong}"
-                                    BorderThickness="0"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="6">
                                 <Grid>
                                     <Path x:Name="CheckGlyph"

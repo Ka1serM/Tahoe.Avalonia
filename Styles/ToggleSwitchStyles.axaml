@@ -3,11 +3,11 @@
 
     <Styles.Resources>
         <!-- Toggle switch sizing (internal) -->
-        <x:Double x:Key="toggle-knob-bounds-width">32</x:Double>
-        <x:Double x:Key="toggle-knob-width">28</x:Double>
+        <x:Double x:Key="toggle-knob-bounds-width">20</x:Double>
+        <x:Double x:Key="toggle-knob-width">20</x:Double>
         <x:Double x:Key="toggle-knob-height">16</x:Double>
-        <x:Double x:Key="toggle-knob-start-x">0</x:Double>
-        <x:Double x:Key="toggle-knob-checked-x">4</x:Double>
+        <x:Double x:Key="toggle-knob-start-x">2</x:Double>
+        <x:Double x:Key="toggle-knob-checked-x">22</x:Double>
 
         <ControlTheme x:Key="toggleSwitchTheme" TargetType="ToggleSwitch">
             <Setter Property="Foreground" Value="{DynamicResource Foreground}" />

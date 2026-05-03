@@ -40,10 +40,54 @@
     <Style Selector="controls|GroupBox.clipContent /template/ Border#Chrome">
         <Setter Property="ClipToBounds" Value="True" />
     </Style>
-    <Style Selector="controls|GroupBox Button:not(.windowControl):not(.lift)">
+    <Style Selector="controls|GroupBox Button:not(.windowControl):not(.overlayGizmo):not(.drawerLift)">
         <Setter Property="Theme" Value="{StaticResource flatButtonTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
     </Style>
-    <Style Selector="controls|GroupBox ToggleButton:not(.lift)">
+    <Style Selector="controls|GroupBox ToggleButton:not(.overlayGizmo):not(.drawerLift)">
         <Setter Property="Theme" Value="{StaticResource flatToggleButtonTheme}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift)">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox TextBox:not(.embeddedComboEditor)">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox TextBox:not(.embeddedComboEditor) /template/ Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox NumericUpDown">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox NumericUpDown /template/ Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox controls|EditableComboBox /template/ Border#ComboBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+    <Style Selector="controls|GroupBox ToggleSwitch /template/ Border#Track">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="controls|GroupBox CheckBox">
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="1" />
     </Style>
 </Styles>
