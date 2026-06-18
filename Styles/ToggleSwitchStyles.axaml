@@ -3,11 +3,8 @@
 
     <Styles.Resources>
         <!-- Toggle switch sizing (internal) -->
-        <x:Double x:Key="toggle-knob-bounds-width">20</x:Double>
         <x:Double x:Key="toggle-knob-width">20</x:Double>
         <x:Double x:Key="toggle-knob-height">16</x:Double>
-        <x:Double x:Key="toggle-knob-start-x">2</x:Double>
-        <x:Double x:Key="toggle-knob-checked-x">22</x:Double>
 
         <ControlTheme x:Key="toggleSwitchTheme" TargetType="ToggleSwitch">
             <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
@@ -50,12 +47,11 @@
                                 </Border.Transitions>
                             </Border>
                             <Canvas x:Name="PART_SwitchKnob"
-                                    Width="{StaticResource toggle-knob-bounds-width}"
+                                    Width="{StaticResource size-lg}"
                                     Height="20"
                                     ClipToBounds="False">
                                 <Grid x:Name="PART_MovingKnobs"
-                                      Canvas.Left="{StaticResource toggle-knob-start-x}"
-                                      Width="{StaticResource toggle-knob-bounds-width}"
+                                      Width="20"
                                       Height="20">
                                     <Border x:Name="KnobVisual"
                                             Width="{StaticResource toggle-knob-width}"
@@ -99,7 +95,7 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
             </Style>
             <Style Selector="^:unchecked /template/ Grid#PART_MovingKnobs">
-                <Setter Property="Canvas.Left" Value="{StaticResource toggle-knob-start-x}" />
+                <Setter Property="Canvas.Left" Value="2" />
             </Style>
             <Style Selector="^:unchecked /template/ Border#KnobVisual">
                 <Setter Property="Background" Value="{DynamicResource AccentForeground}" />
@@ -115,7 +111,7 @@
                 <Setter Property="BorderBrush" Value="#22000000" />
             </Style>
             <Style Selector="^:checked /template/ Grid#PART_MovingKnobs">
-                <Setter Property="Canvas.Left" Value="{StaticResource toggle-knob-checked-x}" />
+                <Setter Property="Canvas.Left" Value="22" />
             </Style>
             <Style Selector="^:checked /template/ Border#KnobVisual">
                 <Setter Property="Background" Value="{DynamicResource AccentForeground}" />

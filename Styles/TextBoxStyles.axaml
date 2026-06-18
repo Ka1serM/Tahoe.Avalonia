@@ -7,8 +7,8 @@
 
     <!-- TextBox                                       -->
     <Style Selector="TextBox">
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
         <Setter Property="Padding" Value="{StaticResource textbox-padding}" />
@@ -21,8 +21,8 @@
     <Style Selector="TextBox /template/ Border">
         <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
     <Style Selector="TextBox /template/ ScrollViewer">
         <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
@@ -41,20 +41,20 @@
     </Style>
     <Style Selector="TextBox:pointerover">
         <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
     </Style>
     <Style Selector="TextBox:pointerover /template/ Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
     </Style>
     <Style Selector="TextBox:focus">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
     </Style>
     <Style Selector="TextBox:focus /template/ Border">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
     </Style>
     <Style Selector="TextBox.lift /template/ Border">

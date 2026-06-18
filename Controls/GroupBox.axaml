@@ -1,93 +1,163 @@
-<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls">
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls"
+>
 
     <Styles.Resources>
         <ControlTheme x:Key="groupBoxTheme" TargetType="controls:GroupBox">
             <Setter Property="Background" Value="{DynamicResource Surface}" />
-            <Setter Property="CornerRadius" Value="{DynamicResource radius-lg}" />
-            <Setter Property="BorderThickness" Value="1" />
+            <Setter
+                Property="CornerRadius"
+                Value="{DynamicResource radius-lg}"
+            />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="0 4" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="controls:GroupBox">
-                    <Border x:Name="Chrome"
+                    <Grid x:Name="Root" ClipToBounds="False">
+                        <Border
+                            x:Name="Chrome"
                             ClipToBounds="True"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{DynamicResource Border}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <ContentPresenter ClipToBounds="True"
-                                          Content="{TemplateBinding Content}"
-                                          Margin="{TemplateBinding Padding}" />
-                    </Border>
+                            BoxShadow="{StaticResource shadow-card-rest}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                        >
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BoxShadowsTransition
+                                        Property="BoxShadow"
+                                        Duration="0:0:0.12"
+                                        Easing="QuadraticEaseOut"
+                                    />
+                                </Transitions>
+                            </Border.Transitions>
+                            <ContentPresenter
+                                ClipToBounds="True"
+                                Content="{TemplateBinding Content}"
+                                Margin="{TemplateBinding Padding}"
+                            />
+                        </Border>
+                        <Border
+                            x:Name="EdgeHighlight"
+                            IsHitTestVisible="False"
+                            BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                            BorderThickness="{TemplateBinding EdgeThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                        />
+                    </Grid>
                 </ControlTemplate>
             </Setter>
         </ControlTheme>
+
+        <ControlTheme
+            x:Key="panelBoxTheme"
+            TargetType="controls:PanelBox"
+            BasedOn="{StaticResource groupBoxTheme}"
+        />
     </Styles.Resources>
 
     <Style Selector="controls|GroupBox">
         <Setter Property="Theme" Value="{StaticResource groupBoxTheme}" />
     </Style>
+    <Style Selector="controls|PanelBox">
+        <Setter Property="Theme" Value="{StaticResource panelBoxTheme}" />
+    </Style>
 
-    <Style Selector="controls|GroupBox.lift">
+    <Style Selector="controls|GroupBox.lift, controls|PanelBox.lift">
         <Setter Property="ClipToBounds" Value="False" />
     </Style>
-    <Style Selector="controls|GroupBox.lift /template/ Border#Chrome">
-        <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />
+    <Style
+        Selector="controls|GroupBox.lift /template/ Border#Chrome, controls|PanelBox.lift /template/ Border#Chrome"
+    >
+        <Setter
+            Property="BoxShadow"
+            Value="{StaticResource shadow-card-rest}"
+        />
     </Style>
-    <Style Selector="controls|GroupBox.clipContent">
+    <Style
+        Selector="controls|GroupBox.clipContent, controls|PanelBox.clipContent"
+    >
         <Setter Property="ClipToBounds" Value="True" />
     </Style>
-    <Style Selector="controls|GroupBox.clipContent /template/ Border#Chrome">
+    <Style
+        Selector="controls|GroupBox.clipContent /template/ Border#Chrome, controls|PanelBox.clipContent /template/ Border#Chrome"
+    >
         <Setter Property="ClipToBounds" Value="True" />
     </Style>
-    <Style Selector="controls|GroupBox Button:not(.windowControl):not(.overlayGizmo):not(.drawerLift)">
+    <Style
+        Selector="controls|GroupBox Button:not(.windowControl):not(.overlayGizmo):not(.drawerLift), controls|PanelBox Button:not(.windowControl):not(.overlayGizmo):not(.drawerLift)"
+    >
         <Setter Property="Theme" Value="{StaticResource flatButtonTheme}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox ToggleButton:not(.overlayGizmo):not(.drawerLift)">
-        <Setter Property="Theme" Value="{StaticResource flatToggleButtonTheme}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox ToggleButton:not(.overlayGizmo):not(.drawerLift), controls|PanelBox ToggleButton:not(.overlayGizmo):not(.drawerLift)"
+    >
+        <Setter
+            Property="Theme"
+            Value="{StaticResource flatToggleButtonTheme}"
+        />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift)">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox ComboBox:not(.drawerLift), controls|PanelBox ComboBox:not(.drawerLift)"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder, controls|PanelBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="controls|GroupBox TextBox:not(.embeddedComboEditor)">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox TextBox:not(.embeddedComboEditor), controls|PanelBox TextBox:not(.embeddedComboEditor)"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox TextBox:not(.embeddedComboEditor) /template/ Border">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox TextBox:not(.embeddedComboEditor) /template/ Border, controls|PanelBox TextBox:not(.embeddedComboEditor) /template/ Border"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="controls|GroupBox NumericUpDown">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox NumericUpDown, controls|PanelBox NumericUpDown"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox NumericUpDown /template/ Border">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox NumericUpDown /template/ Border, controls|PanelBox NumericUpDown /template/ Border"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="controls|GroupBox controls|EditableComboBox /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox controls|EditableComboBox /template/ Border#ComboBorder, controls|PanelBox controls|EditableComboBox /template/ Border#ComboBorder"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="controls|GroupBox ToggleSwitch /template/ Border#Track">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style
+        Selector="controls|GroupBox ToggleSwitch /template/ Border#Track, controls|PanelBox ToggleSwitch /template/ Border#Track"
+    >
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
-    <Style Selector="controls|GroupBox CheckBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style Selector="controls|GroupBox CheckBox, controls|PanelBox CheckBox">
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
 </Styles>

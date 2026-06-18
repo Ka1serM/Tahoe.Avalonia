@@ -33,10 +33,12 @@
                 <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
             </Style>
             <Style Selector="^:selected /template/ Border#SelectionBorder,
-                             ^:selected:focus /template/ Border#SelectionBorder,
-                             ^:selected:pointerover /template/ Border#SelectionBorder,
-                             ^:selected:focus:pointerover /template/ Border#SelectionBorder">
+                             ^:selected:focus /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+            </Style>
+            <Style Selector="^:selected:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource SelectedHover}" />
             </Style>
             <Style Selector="^[TabStripPlacement=Right]">
                 <Setter Property="HorizontalContentAlignment" Value="Right" />
@@ -63,6 +65,9 @@
     </Style>
     <Style Selector="TabItem:selected">
         <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+    </Style>
+    <Style Selector="TabItem:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource SelectedHover}" />
     </Style>
     <Style Selector="TabItem:selected /template/ Border">
         <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-selected}" />

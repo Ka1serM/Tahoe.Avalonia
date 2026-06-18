@@ -42,18 +42,21 @@
                 <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
             </Style>
             <Style Selector="^:selected /template/ Border#SelectionBorder,
-                             ^:selected:focus /template/ Border#SelectionBorder,
-                             ^:selected:pointerover /template/ Border#SelectionBorder,
-                             ^:selected:focus:pointerover /template/ Border#SelectionBorder">
+                             ^:selected:focus /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource Accent}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+            </Style>
+            <Style Selector="^:selected:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus:pointerover /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="{DynamicResource SelectedHover}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SelectedHover}" />
             </Style>
         </ControlTheme>
 
         <ControlTheme x:Key="comboBoxTheme" TargetType="ComboBox">
             <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+            <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
             <Setter Property="CornerRadius" Value="{DynamicResource radius-md}" />
             <Setter Property="Padding" Value="{StaticResource btn-padding}" />
             <Setter Property="Height" Value="{StaticResource size-md}" />
@@ -115,8 +118,8 @@
                                     MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     Background="{DynamicResource Background}"
-                                    BorderBrush="{DynamicResource Border}"
-                                    BorderThickness="0"
+                                    BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                                    BorderThickness="{StaticResource panel-edge-thickness}"
                                     CornerRadius="{DynamicResource radius-md}"
                                     BoxShadow="{StaticResource shadow-surface-rest}">
                                 <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
@@ -130,14 +133,14 @@
             </Setter>
             <Style Selector="^:pointerover /template/ Border#ComboBorder">
                 <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
             </Style>
             <Style Selector="^:focus /template/ Border#ComboBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
                 <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
             </Style>
             <Style Selector="^[IsDropDownOpen=True] /template/ Border#ComboBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
                 <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
             </Style>
             <Style Selector="^[IsEditable=True] /template/ TextBox#PART_EditableTextBox">
@@ -171,8 +174,8 @@
     <!-- ComboBox                                      -->
     <Style Selector="ComboBox">
         <Setter Property="Theme" Value="{StaticResource comboBoxTheme}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource radius-full}" />
         <Setter Property="Padding" Value="{StaticResource btn-padding}" />
@@ -189,7 +192,7 @@
         <Setter Property="ClipToBounds" Value="False" />
     </Style>
     <Style Selector="ComboBox:pointerover">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
     </Style>
     <Style Selector="ComboBox.lift /template/ Border#ComboBorder">
@@ -199,19 +202,19 @@
         <Setter Property="BoxShadow" Value="{StaticResource shadow-card-hover}" />
     </Style>
     <Style Selector="controls|GroupBox ComboBox:not(.drawerLift)">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
     </Style>
     <Style Selector="controls|GroupBox ComboBox:not(.drawerLift) /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+        <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
     <Style Selector="controls|GroupBox ComboBox.lift:not(.drawerLift) /template/ Border#ComboBorder">
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
     <Style Selector="controls|GroupBox ComboBox:not(.drawerLift):pointerover /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
     <Style Selector="controls|GroupBox ComboBox.lift:not(.drawerLift):pointerover /template/ Border#ComboBorder">
@@ -236,8 +239,15 @@
         <Setter Property="Background" Value="{DynamicResource Accent}" />
         <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
     </Style>
+    <Style Selector="ComboBoxItem:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource SelectedHover}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+    </Style>
     <Style Selector="ComboBoxItem:selected TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ComboBoxItem:selected:pointerover TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
     </Style>
 
 </Styles>

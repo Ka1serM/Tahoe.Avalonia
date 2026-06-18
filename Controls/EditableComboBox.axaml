@@ -5,8 +5,8 @@
     <Styles.Resources>
         <ControlTheme x:Key="editableComboBoxTheme" TargetType="controls:EditableComboBox">
             <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
-            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
+            <Setter Property="BorderThickness" Value="{StaticResource panel-edge-thickness}" />
             <Setter Property="CornerRadius" Value="{DynamicResource radius-md}" />
             <Setter Property="Padding" Value="{StaticResource btn-padding}" />
             <Setter Property="Height" Value="{StaticResource size-md}" />
@@ -78,8 +78,8 @@
                                     MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     Background="{DynamicResource Background}"
-                                    BorderBrush="{DynamicResource Border}"
-                                    BorderThickness="0"
+                                    BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                                    BorderThickness="{StaticResource panel-edge-thickness}"
                                     CornerRadius="{DynamicResource radius-md}"
                                     BoxShadow="{StaticResource shadow-surface-rest}">
                                 <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"

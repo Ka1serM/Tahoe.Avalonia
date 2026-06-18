@@ -73,7 +73,7 @@
 
     <!-- Reduce item margins -->
     <Style Selector="controls|EditableList ListBoxItem">
-        <Setter Property="Padding" Value="11 4" />
+        <Setter Property="Padding" Value="11 0" />
         <Setter Property="Margin" Value="3 0" />
     </Style>
 

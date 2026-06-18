@@ -19,8 +19,8 @@
                         </Border>
                         <Border x:Name="Highlight"
                                 Background="Transparent"
-                                BorderBrush="{DynamicResource OverlaySoft}"
-                                BorderThickness="0"
+                                BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                                BorderThickness="{StaticResource panel-edge-thickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
                         <ContentPresenter Margin="{TemplateBinding Padding}"
                                           Content="{TemplateBinding Content}"
@@ -82,6 +82,11 @@
         <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
         <Setter Property="Background" Value="{DynamicResource Accent}" />
         <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="ToggleButton:checked:pointerover">
+        <Setter Property="BorderBrush" Value="{DynamicResource SelectedHover}" />
+        <Setter Property="Background" Value="{DynamicResource SelectedHover}" />
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
     </Style>
     <Style Selector="ToggleButton.lift /template/ Border#Chrome">
         <Setter Property="BoxShadow" Value="{StaticResource shadow-card-rest}" />

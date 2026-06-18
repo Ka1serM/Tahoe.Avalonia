@@ -92,13 +92,11 @@
             </Style>
             <Style Selector="^:selected /template/ Border#SelectionBorder,
                              ^:selected:focus /template/ Border#SelectionBorder,
-                             ^:selected:focus-within /template/ Border#SelectionBorder,
-                             ^:selected:pointerover /template/ Border#SelectionBorder,
-                             ^:selected:pointerover:focus /template/ Border#SelectionBorder,
-                             ^:selected:pointerover:focus-within /template/ Border#SelectionBorder">
+                             ^:selected:focus-within /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource Accent}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
             </Style>
+            
             <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -136,6 +134,24 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
     </Style>
+    <Style Selector="TreeViewItem:selected TextBlock,
+                     TreeViewItem:selected:focus TextBlock,
+                     TreeViewItem:selected:focus-within TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    
+    <Style Selector="TreeViewItem:selected icons|SymbolIcon,
+                     TreeViewItem:selected:focus icons|SymbolIcon,
+                     TreeViewItem:selected:focus-within icons|SymbolIcon">
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    
+    <Style Selector="TreeViewItem:selected /template/ ToggleButton#PART_ExpandCollapseChevron Path,
+                     TreeViewItem:selected:focus /template/ ToggleButton#PART_ExpandCollapseChevron Path,
+                     TreeViewItem:selected:focus-within /template/ ToggleButton#PART_ExpandCollapseChevron Path">
+        <Setter Property="Fill" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    
     <!-- ============================================= -->
     <!-- TreeView item template helpers                -->
     <!-- Icon badge, name, subtitle, count badge       -->

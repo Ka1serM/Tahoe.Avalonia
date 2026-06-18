@@ -34,17 +34,19 @@
                     </Transitions>
                 </Setter>
             </Style>
-            <Style Selector="^:pointerover /template/ Border#SelectionBorder">
-                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
-            </Style>
             <Style Selector="^:selected /template/ Border#SelectionBorder,
                              ^:selected:focus /template/ Border#SelectionBorder,
-                             ^:selected:focus-within /template/ Border#SelectionBorder,
-                             ^:selected:pointerover /template/ Border#SelectionBorder,
-                             ^:selected:focus:pointerover /template/ Border#SelectionBorder,
-                             ^:selected:focus-within:pointerover /template/ Border#SelectionBorder">
+                             ^:selected:focus-within /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource Accent}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+            </Style>
+            <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover,
+                             ^:selected:focus /template/ Border#SelectionBorder:pointerover,
+                             ^:selected:focus-within /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background" Value="{DynamicResource Accent}" />
+            </Style>
+            <Style Selector="^:not(:selected) /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
             </Style>
         </ControlTheme>
     </Styles.Resources>
@@ -82,24 +84,16 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
     </Style>
-    <Style Selector="ListBoxItem:pointerover">
-        <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+    
+    <Style Selector="ListBoxItem:pointerover, ListBoxItem:selected, ListBoxItem:selected:pointerover, ListBoxItem:focus, ListBoxItem:focus-within">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
     </Style>
-    <Style Selector="ListBoxItem:pointerover /template/ Border">
-        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-rest}" />
-    </Style>
-    <Style Selector="ListBoxItem:selected, ListBoxItem:selected:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Accent}" />
+    
+    <Style Selector="ListBoxItem:selected TextBlock, ListBoxItem:selected:focus TextBlock, ListBoxItem:selected:focus-within TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
     </Style>
-    <Style Selector="ListBoxItem:selected TextBlock">
-        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
-    </Style>
-    <Style Selector="ListBoxItem:selected /template/ Border">
-        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-selected}" />
-    </Style>
-    <Style Selector="ListBoxItem:selected:pointerover /template/ Border">
-        <Setter Property="BoxShadow" Value="{StaticResource shadow-surface-active}" />
-    </Style>
+    
+    
 
 </Styles>

@@ -19,8 +19,8 @@
                         </Border>
                         <Border x:Name="Highlight"
                                 Background="Transparent"
-                                BorderBrush="{DynamicResource OverlaySoft}"
-                                BorderThickness="0"
+                                BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                                BorderThickness="{StaticResource panel-edge-thickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
                         <ContentPresenter Margin="{TemplateBinding Padding}"
                                           Content="{TemplateBinding Content}"

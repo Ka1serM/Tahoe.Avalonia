@@ -35,13 +35,19 @@
         <Setter Property="Fill" Value="{DynamicResource OverlaySoft}" />
         <Setter Property="Opacity" Value="1" />
     </Style>
-    <Style Selector="DataGridRow:selected /template/ Rectangle#BackgroundRectangle,
-                     DataGridRow:selected:pointerover /template/ Rectangle#BackgroundRectangle">
+    <Style Selector="DataGridRow:selected /template/ Rectangle#BackgroundRectangle">
         <Setter Property="Fill" Value="{DynamicResource Accent}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="DataGridRow:selected:pointerover /template/ Rectangle#BackgroundRectangle">
+        <Setter Property="Fill" Value="{DynamicResource SelectedHover}" />
         <Setter Property="Opacity" Value="1" />
     </Style>
     <Style Selector="DataGridRow:selected">
         <Setter Property="Foreground" Value="{DynamicResource AccentForeground}" />
+    </Style>
+    <Style Selector="DataGridRow:selected:pointerover">
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
     </Style>
     <Style Selector="DataGridCell:selected, DataGridCell:current">
         <Setter Property="Background" Value="Transparent" />

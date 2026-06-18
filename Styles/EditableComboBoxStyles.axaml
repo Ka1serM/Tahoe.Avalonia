@@ -4,16 +4,16 @@
 
     <Style Selector="controls|EditableComboBox:pointerover /template/ Border#ComboBorder">
         <Setter Property="Background" Value="{DynamicResource BackgroundLight}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderStrong}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
     </Style>
 
     <Style Selector="controls|EditableComboBox:focus /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
     </Style>
 
     <Style Selector="controls|EditableComboBox[IsDropDownOpen=True] /template/ Border#ComboBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelEdgeHighlight}" />
         <Setter Property="Background" Value="{DynamicResource SurfaceLight}" />
     </Style>
 
