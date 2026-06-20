@@ -4,10 +4,10 @@
         xmlns:fluent="clr-namespace:FluentIcons.Avalonia;assembly=FluentIcons.Avalonia">
 
     <Style Selector="controls|ExpandableSettingBox">
-        <Setter Property="Margin" Value="0 10 0 0" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:ExpandableSettingBox">
-                <controls:GroupBox>
+                <controls:GroupBox Margin="0" Padding="0">
                     <StackPanel>
                         <Border x:Name="HeaderRoot"
                                 Background="Transparent"
@@ -62,7 +62,7 @@
     </Style>
 
     <Style Selector="controls|ExpandableSettingBox.settingSized /template/ Border#HeaderRoot">
-        <Setter Property="MinHeight" Value="56" />
+        <Setter Property="MinHeight" Value="68" />
     </Style>
 
     <Style Selector="controls|ExpandableSettingBox[IsExpanded=true] /template/ Border#HeaderRoot">

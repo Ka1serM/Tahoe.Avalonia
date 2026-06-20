@@ -6,7 +6,7 @@
 
     <Styles.Resources>
         <!-- ProgressBar sizing (internal) -->
-        <x:Double x:Key="progress-bar-height">12</x:Double>
+        <x:Double x:Key="progress-bar-height">6</x:Double>
 
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
 

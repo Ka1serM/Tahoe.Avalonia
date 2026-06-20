@@ -1,0 +1,51 @@
+uniform float2 size;
+uniform float4 cornerRadii;
+uniform float4 color;
+uniform float angle;
+uniform float falloff;
+
+float radiusAt(float2 centeredCoord, float4 radii) {
+    if (centeredCoord.x >= 0.0) {
+        if (centeredCoord.y < 0.0) return radii.y;
+        else return radii.z;
+    } else {
+        if (centeredCoord.y < 0.0) return radii.x;
+        else return radii.w;
+    }
+}
+
+float2 gradSdRoundedRect(float2 coord, float2 halfSize, float radius) {
+    float2 cornerCoord = abs(coord) - (halfSize - float2(radius));
+    if (cornerCoord.x >= 0.0 || cornerCoord.y >= 0.0) {
+        return sign(coord) * normalize(max(cornerCoord, 0.0));
+    } else {
+        float gradX = step(cornerCoord.y, cornerCoord.x);
+        return sign(coord) * float2(gradX, 1.0 - gradX);
+    }
+}
+
+float cornerDist(float2 coord, float2 halfSize, float r) {
+    float2 q = abs(coord) - (halfSize - float2(r));
+    float2 c = max(q, 0.0);
+    return length(c);
+}
+
+half4 main(float2 coord) {
+    float2 halfSize = size * 0.5;
+    float2 centeredCoord = coord - halfSize;
+    float radius = radiusAt(centeredCoord, cornerRadii);
+    float gradRadius = min(radius * 1.5, min(halfSize.x, halfSize.y));
+
+    float2 normal = float2(cos(angle), sin(angle));
+
+    float dEdge = dot(gradSdRoundedRect(centeredCoord, halfSize, gradRadius), normal);
+    float edgeIntensity = pow(abs(dEdge), max(falloff, 0.0));
+
+    float dCorner = 1.0 - smoothstep(0.0, gradRadius * 1.5, cornerDist(centeredCoord, halfSize, gradRadius));
+    float cornerIntensity = pow(dCorner, max(falloff, 0.0));
+
+    float intensity = mix(edgeIntensity, cornerIntensity, 0.85);
+    half a = half(color.a * intensity);
+    half3 rgb = half3(color.rgb) * a;
+    return half4(rgb, a);
+}

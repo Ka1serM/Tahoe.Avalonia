@@ -21,7 +21,13 @@
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(UniversalUmapAvaloniaVersion)" />
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(UniversalUmapAvaloniaDataGridVersion)" />
+    <PackageReference Include="Avalonia.Skia" Version="$(UniversalUmapAvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Simple" Version="$(UniversalUmapAvaloniaVersion)" />
     <PackageReference Include="FluentIcons.Avalonia" Version="$(UniversalUmapFluentIconsAvaloniaVersion)" />
+    <PackageReference Include="SkiaSharp" Version="$(UniversalUmapSkiaSharpVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\Shaders\TahoeEdgeHighlight.sksl" />
   </ItemGroup>
 </Project>

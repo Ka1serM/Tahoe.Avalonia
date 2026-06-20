@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Avalonia.Themes.Tahoe.Controls">
 
     <!-- CheckBox                                      -->
     <Style Selector="CheckBox">
@@ -12,13 +13,18 @@
                 <Setter Property="Template">
                     <ControlTemplate>
                         <Grid ColumnDefinitions="Auto,10,*" VerticalAlignment="Center">
-                            <Border x:Name="IndicatorBorder"
-                                    Width="18" Height="18"
-                                    VerticalAlignment="Center"
-                                    Background="{DynamicResource SurfaceLight}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="6">
+                            <Grid Width="18"
+                                  Height="18"
+                                  VerticalAlignment="Center"
+                                  ClipToBounds="False">
+                                <Border x:Name="IndicatorBorder"
+                                        Background="{DynamicResource SurfaceLight}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="6" />
+                                <controls:EdgeHighlight IsHitTestVisible="False"
+                                                        CornerRadius="6"
+                                                        EdgeThickness="{TemplateBinding BorderThickness}" />
                                 <Grid>
                                     <Path x:Name="CheckGlyph"
                                           IsVisible="False"
@@ -36,7 +42,7 @@
                                             CornerRadius="1.5"
                                             Background="{DynamicResource AccentForeground}" />
                                 </Grid>
-                            </Border>
+                            </Grid>
                             <ContentPresenter Grid.Column="2"
                                               VerticalAlignment="Center"
                                               Content="{TemplateBinding Content}"

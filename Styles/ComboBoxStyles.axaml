@@ -67,66 +67,76 @@
             <Setter Property="Template">
                 <ControlTemplate TargetType="ComboBox">
                     <Grid RowDefinitions="Auto,Auto">
-                        <Border x:Name="ComboBorder"
-                                MinHeight="{TemplateBinding MinHeight}"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}">
-                            <Grid ColumnDefinitions="*,Auto">
-                                <Grid Margin="{TemplateBinding Padding}">
-                                    <ContentPresenter x:Name="SelectionBoxPresenter"
-                                                      Content="{TemplateBinding SelectionBoxItem}"
-                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                      IsHitTestVisible="False" />
-                                    <TextBox x:Name="PART_EditableTextBox"
-                                             Classes="embeddedComboEditor"
-                                             Background="Transparent"
-                                             BorderThickness="0"
-                                             Padding="0"
-                                             CornerRadius="0"
-                                             MinHeight="0"
-                                             HorizontalAlignment="Stretch"
-                                             VerticalAlignment="Center"
-                                             IsVisible="{TemplateBinding IsEditable}"
-                                             Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                        <Grid MinHeight="{TemplateBinding MinHeight}"
+                              ClipToBounds="False">
+                            <Border x:Name="ComboBorder"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Grid Margin="{TemplateBinding Padding}">
+                                        <ContentPresenter x:Name="SelectionBoxPresenter"
+                                                          Content="{TemplateBinding SelectionBoxItem}"
+                                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                          IsHitTestVisible="False" />
+                                        <TextBox x:Name="PART_EditableTextBox"
+                                                 Classes="embeddedComboEditor"
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 Padding="0"
+                                                 CornerRadius="0"
+                                                 MinHeight="0"
+                                                 HorizontalAlignment="Stretch"
+                                                 VerticalAlignment="Center"
+                                                 IsVisible="{TemplateBinding IsEditable}"
+                                                 Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                                    </Grid>
+                                    <Border Grid.Column="1"
+                                            Padding="10 0"
+                                            Background="Transparent"
+                                            IsHitTestVisible="False">
+                                        <Path Width="8"
+                                              Height="6"
+                                              Data="M0,0 L4,4 L8,0"
+                                              Stroke="{DynamicResource ForegroundLight}"
+                                              StrokeThickness="1.5"
+                                              StrokeLineCap="Round"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                                    </Border>
                                 </Grid>
-                                <Border Grid.Column="1"
-                                        Padding="10 0"
-                                        Background="Transparent"
-                                        IsHitTestVisible="False">
-                                    <Path Width="8"
-                                          Height="6"
-                                          Data="M0,0 L4,4 L8,0"
-                                          Stroke="{DynamicResource ForegroundLight}"
-                                          StrokeThickness="1.5"
-                                          StrokeLineCap="Round"
-                                          VerticalAlignment="Center"
-                                          HorizontalAlignment="Center" />
-                                </Border>
-                            </Grid>
-                        </Border>
+                            </Border>
+                            <controls:EdgeHighlight IsHitTestVisible="False"
+                                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                                    EdgeThickness="{TemplateBinding BorderThickness}" />
+                        </Grid>
                         <Popup x:Name="PART_Popup"
                                Grid.Row="1"
                                IsLightDismissEnabled="True"
                                IsOpen="{TemplateBinding IsDropDownOpen}"
                                Placement="Bottom"
                                PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-                            <Border Margin="0 4 0 0"
-                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                    MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                    Background="{DynamicResource Background}"
-                                    BorderBrush="{DynamicResource PanelEdgeHighlight}"
-                                    BorderThickness="{StaticResource panel-edge-thickness}"
-                                    CornerRadius="{DynamicResource radius-md}"
-                                    BoxShadow="{StaticResource shadow-surface-rest}">
-                                <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                              HorizontalScrollBarVisibility="Disabled">
-                                    <ItemsPresenter Margin="4" />
-                                </ScrollViewer>
-                            </Border>
+                            <Grid Margin="0 4 0 0"
+                                  MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                  MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                  ClipToBounds="False">
+                                <Border Background="{DynamicResource Background}"
+                                        BorderBrush="{DynamicResource PanelEdgeHighlight}"
+                                        BorderThickness="{StaticResource panel-edge-thickness}"
+                                        CornerRadius="{DynamicResource radius-md}"
+                                        BoxShadow="{StaticResource shadow-surface-rest}">
+                                    <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                  HorizontalScrollBarVisibility="Disabled">
+                                        <ItemsPresenter Margin="4" />
+                                    </ScrollViewer>
+                                </Border>
+                                <controls:EdgeHighlight IsHitTestVisible="False"
+                                                        CornerRadius="{DynamicResource radius-md}"
+                                                        EdgeThickness="{StaticResource panel-edge-thickness}" />
+                            </Grid>
                         </Popup>
                     </Grid>
                 </ControlTemplate>

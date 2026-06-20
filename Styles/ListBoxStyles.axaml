@@ -34,19 +34,20 @@
                     </Transitions>
                 </Setter>
             </Style>
+            <Style Selector="^ /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+            </Style>
             <Style Selector="^:selected /template/ Border#SelectionBorder,
                              ^:selected:focus /template/ Border#SelectionBorder,
                              ^:selected:focus-within /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource Accent}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
             </Style>
-            <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover,
-                             ^:selected:focus /template/ Border#SelectionBorder:pointerover,
-                             ^:selected:focus-within /template/ Border#SelectionBorder:pointerover">
+            <Style Selector="^:selected:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus:pointerover /template/ Border#SelectionBorder,
+                             ^:selected:focus-within:pointerover /template/ Border#SelectionBorder">
                 <Setter Property="Background" Value="{DynamicResource Accent}" />
-            </Style>
-            <Style Selector="^:not(:selected) /template/ Border#SelectionBorder:pointerover">
-                <Setter Property="Background" Value="{DynamicResource OverlaySoft}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
             </Style>
         </ControlTheme>
     </Styles.Resources>

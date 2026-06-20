@@ -40,11 +40,10 @@
                                 Margin="{TemplateBinding Padding}"
                             />
                         </Border>
-                        <Border
+                        <controls:EdgeHighlight
                             x:Name="EdgeHighlight"
                             IsHitTestVisible="False"
-                            BorderBrush="{DynamicResource PanelEdgeHighlight}"
-                            BorderThickness="{TemplateBinding EdgeThickness}"
+                            EdgeThickness="{TemplateBinding EdgeThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                         />
                     </Grid>
